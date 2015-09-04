@@ -6,7 +6,7 @@ body {
 	//background-image: url(http://johnzhang.cn/bing.php);
 	  background-attachment:fixed;
     min-width: 500px;
-    font-family:微软雅黑,Helvetica,STHeiti,Droid Sans Fallback;
+    font-family:Source Han Sans CN,微软雅黑,Helvetica,STHeiti,Droid Sans Fallback;
 }
 a {
 	transition: color 1s;
