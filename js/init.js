@@ -3,7 +3,7 @@ var disqus_shortname = 'jaberz';
 /* * * DON'T EDIT BELOW THIS LINE * * */
 (function() {
     var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-    dsq.src = "/embed.js";
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
 })();
 document.getElementById("footer").innerHTML="<div class="+"footer"+"><a href="+"http://hifs.tk"+">hifs.tk"+" "+"</a><a href="+"mailto:i@hifs.tk"+">联系我</a> <a href="+"http://hifs.tk/About.htm"+">关于我</a><p style='color: darkslategray; font-family: "+"clicker script"+","+"segoe script"+","+"Comic Sans MS"+"; font-size: 28px; margin-top: 1px; text-shadow: none;'>"+"life,love,linux"+"</p></div>";
