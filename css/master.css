@@ -65,36 +65,3 @@ p h1{
 	bottom: 10px;
 	left: 10px;
 }
- .error{
-	background-image : none;
-	position:absolute;
-	margin:-250px 0 0 -250px;
-	top:50%;
-	left:50%;
-	color:rgba(13, 76, 107, 1);
-}
-.error a{
-	text-decoration:none;
-	color:rgba(13, 76, 107, 1);
-	transition: color 1s;
-}
-.error a:hover{
-	color:blue;
-}
-.indexof{
-}
-.indexof size{
-	margin-right:60px;
-}
-.indexof si{
-	margin-left: 18px;
-	width: 91px;
-	display: inline-block;
-}
-.indexof name{
-	margin-left: auto;
-	width: auto;
-}
-.indexof mtime{
-	margin-right: 235px;
-}
