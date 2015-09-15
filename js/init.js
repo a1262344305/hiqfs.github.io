@@ -7,11 +7,6 @@ var disqus_shortname = 'jaberz';
     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
 })();
 $(document).ready(function() {
-       $("html").niceScroll({
-         scrollspeed:30
-       });
-});
-$(document).ready(function() {
     document.getElementById("footer").innerHTML="<div class="
       +"footer"
       +"><a href="

@@ -72,3 +72,6 @@ p h1{
 	bottom: 10px;
 	left: 10px;
 }
+.mindex {
+	max-width: 400px;
+}
