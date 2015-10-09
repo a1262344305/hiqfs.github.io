@@ -1,11 +1,23 @@
 /* * * CONFIGURATION VARIABLES * * */
-var disqus_shortname = 'jaberz';
+//var disqus_shortname = 'jaberz';
 /* * * DON'T EDIT BELOW THIS LINE * * */
-(function() {
+/*(function() {
     var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
     dsq.src = "/js/disqus_embed.js";
     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
 })();
+*/
+//多说
+var duoshuoQuery = {short_name:"hifs"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0]
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+//end
 $(document).ready(function() {
     document.getElementById("footer").innerHTML="<div class="
       +"footer"
