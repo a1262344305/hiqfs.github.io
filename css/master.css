@@ -75,3 +75,10 @@ p h1{
 .mindex {
 	max-width: 400px;
 }
+.ds-thread{
+	width: 900px;
+}
+.ds-powered-by{
+	text-shadow:none;
+	transition:none;
+}
