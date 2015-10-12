@@ -1,9 +1,10 @@
 @charset "UTF-8";
 body {
-	background-image: url(http://77flfx.com1.z0.glb.clouddn.com/100001654389814.jpg);
+	/*background-image: url(http://77flfx.com1.z0.glb.clouddn.com/100001654389814.jpg);
 	//background-image: url(http://qqfs.qiniudn.com/background.png);
+	background-image: url(http://johnzhang.cn/bing.php);*/
+	background-image: url(http://qqfs.qiniudn.com/background.png);
 	background-size: cover;
-	//background-image: url(http://johnzhang.cn/bing.php);
 	  background-attachment:fixed;
     min-width: 500px;
     font-family:Source Han Sans CN,微软雅黑,Helvetica,STHeiti,Droid Sans Fallback;
