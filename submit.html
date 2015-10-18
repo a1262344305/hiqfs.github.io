@@ -4,17 +4,21 @@
     <meta charset="utf-8">
     <title>submit from</title>
     <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.js"></script>
+    <script type="text/javascript" src="./js/init.js"></script>
     <script type="text/javascript" src="./js/background.js"></script>
-    <link type="text/css" rel="stylesheet" href="/css/master.css">
+    <script type="text/javascript" src="./js/comment.js"></script>
+    <link type="text/css" rel="stylesheet" href="./css/master.css">
+    <link type="text/css" rel="stylesheet" href="./css/comment.css">
   </head>
   <body id="hcon">
-    <div class="center">
-    <form action="http://127.0.0.1/imgaddress.php" method="post">
+    <div>
+    <div class="submit">
       <p>要提交的地址</p>
-    <input type="text" name="address">
-    <input type="submit" value="Submit" />
+    <textarea id="ti" class="ti" name="comment" form = "comment" wrap="logical">saddasd</textarea><br>
+    <button onclick ="tijiaopost();">发送</button>
   </form>
-  <div id = "footer"></div>
-  <script type="text/javascript" src="/js/init.js"></script>
 </div>
-  </body>
+  <div id= "commit"></div>
+  <div id = "footer"></div>
+</div>
+</body>

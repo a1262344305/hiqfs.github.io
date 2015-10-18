@@ -1,0 +1,47 @@
+@charset "UTF-8";
+#commit{
+  text-align: center;
+}
+.comm{
+  display: block;
+}
+.comm time{
+  display: block;
+  left:0%;
+  font-size: 12px;
+  width: 135px;
+  text-shadow:none;
+  position: relative;
+}
+.comm comment{
+  width: 100%;
+  display: block;
+  height: 150px;
+  text-align:left;
+  position:relative;
+
+}
+.com {
+  width: 60%;
+  left: 20%;
+  right: 20%;
+  position:relative;
+  text-align: left;
+}
+.ti{
+  width: 100%;
+  background-color:transparent;
+  max-height: 100px;
+  height: 100px;
+}
+.su{
+	text-align:right;
+}
+.submit{
+  height: 200px;
+  width: 60%;
+  left: 20%;
+  right: 20%;
+  position:relative;
+  text-align: left;
+}
