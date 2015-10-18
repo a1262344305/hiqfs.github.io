@@ -16,6 +16,7 @@ a {
 	color:royalblue;
 }
 #hcon a:hover{
+	text-align: center;
 	color:royalblue;
 }
 .footer
@@ -45,6 +46,7 @@ max-width:700px;
 #hcon{
 	color:#FFF;
 	text-shadow:1px 1px 15px #000;
+	text-align: center;
 }
 .center{
 	text-align:center;

@@ -16,7 +16,7 @@
 .comm comment{
   width: 100%;
   display: block;
-  height: 150px;
+  height: 100px;
   text-align:left;
   position:relative;
 
@@ -43,5 +43,5 @@
   left: 20%;
   right: 20%;
   position:relative;
-  text-align: left;
+  text-align:left;
 }
