@@ -5,6 +5,15 @@
 .comm{
   display: block;
 }
+/*#commit{
+  background-color: #FFF;
+  width: 60%;
+  left: 20%;
+  position: relative;
+  box-shadow:5px 2px 27px #000;
+  margin-bottom: 20px;
+  margin-top: 10px;
+}*/
 .comm time{
   display: block;
   left:0%;
@@ -12,6 +21,8 @@
   width: 135px;
   text-shadow:none;
   position: relative;
+  bottom: -35px;
+  color: #A9A9A9;
 }
 .comm comment{
   width: 100%;
@@ -19,29 +30,67 @@
   height: 100px;
   text-align:left;
   position:relative;
+  border-top: 1px solid #E0E0E0;
 
 }
 .com {
-  width: 60%;
-  left: 20%;
-  right: 20%;
+  left: 10%;
+  width: 80%;
   position:relative;
   text-align: left;
 }
 .ti{
-  width: 100%;
   background-color:transparent;
   max-height: 100px;
   height: 100px;
+  margin-top: 20px;
 }
 .su{
 	text-align:right;
 }
 .submit{
-  height: 200px;
-  width: 60%;
-  left: 20%;
-  right: 20%;
+  height: 130px;
   position:relative;
   text-align:left;
+  left: 10%;
+  width: 80%;
+  margin-bottom: 50px;
+  margin-top: 30px;
+}
+textarea{
+  resize:none;
+  border: 1px solid #A9A9A9;
+  width: 100%;
+}
+.com p{
+  overflow:hidden;
+  text-overflow: ellipsis;
+  height: 110px;
+  color: #666666;
+  text-shadow: none;
+}
+#jiao{
+  font-weight: normal;
+    font-size: 12px;
+    text-shadow: none;
+    border: 0;
+    line-height: 23px;
+    width: 57px;
+    background: #00a3cf;
+    color: #fff;
+}
+te{
+  color: #666666;
+}
+#jiao:hover{
+      background-position: 0 -15px;
+}
+.comment{
+  background-color: #FFF;
+  width: 60%;
+  left: 20%;
+  position: relative;
+  box-shadow:1px 1px 20px #000;
+  margin-bottom: 20px;
+  margin-top: 10px;
 }
