@@ -8,7 +8,7 @@
 })();
 */
 //多说
-var duoshuoQuery = {short_name:"hifs"};
+/*var duoshuoQuery = {short_name:"hifs"};
 	(function() {
 		var ds = document.createElement('script');
 		ds.type = 'text/javascript';ds.async = true;
@@ -16,7 +16,7 @@ var duoshuoQuery = {short_name:"hifs"};
 		ds.charset = 'UTF-8';
 		(document.getElementsByTagName('head')[0]
 		 || document.getElementsByTagName('body')[0]).appendChild(ds);
-	})();
+	})();*/
 //end
 //百度分享
   window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"16"},"slide":{"type":"slide","bdImg":"0","bdPos":"left","bdTop":"190.5"}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];

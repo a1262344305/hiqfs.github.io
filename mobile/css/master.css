@@ -1,0 +1,10 @@
+body{
+  font-size: 300%;
+}
+.mobile{
+  background-image: url(http://qqfs.qiniudn.com/background.png);
+  background-size: cover;
+}
+time{
+  font-size:40%;
+}
