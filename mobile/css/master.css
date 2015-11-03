@@ -1,9 +1,25 @@
-body{
-  font-size: 300%;
+comment{
+  font-size: 100%;
 }
 .mobile{
   background-image: url(http://qqfs.qiniudn.com/background.png);
   background-size: cover;
 }
 time{
+  font-size: 50%;
+  color: #A9A9A9;
+}
+p{
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+body{
+    font-family:Source Han Sans CN,微软雅黑,Helvetica,STHeiti,Droid Sans Fallback;
+}
+center p{
+  font-size: 200%;
+}
+comment img{
+  height:50px;
+  width: 50px;
 }
