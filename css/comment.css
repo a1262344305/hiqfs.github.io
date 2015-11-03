@@ -93,4 +93,5 @@ te{
   box-shadow:1px 1px 20px #000;
   margin-bottom: 20px;
   margin-top: 10px;
+  min-width: 500px;
 }
