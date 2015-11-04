@@ -1,9 +1,13 @@
 comment{
   font-size: 100%;
 }
+p a{
+  text-decoration:none;
+}
 .mobile{
   background-image: url(http://qqfs.qiniudn.com/background.png);
-  background-size: cover;
+  background-size: contain;
+  background-attachment:fixed;
 }
 time{
   font-size: 50%;
@@ -17,9 +21,15 @@ body{
     font-family:Source Han Sans CN,微软雅黑,Helvetica,STHeiti,Droid Sans Fallback;
 }
 center p{
-  font-size: 200%;
 }
 comment img{
-  height:50px;
-  width: 50px;
+  height:24px;
+  width:24px;
+}
+.hitokoto a{
+  text-decoration:none;
+  text-align: center;
+}
+text{
+  text-align: center;
 }

@@ -18,6 +18,21 @@
 		 || document.getElementsByTagName('body')[0]).appendChild(ds);
 	})();*/
 //end
+/*
+var ua = navigator.userAgent.toLowerCase();
+if(ua.match(/Mobile/i)=={"mobile"}) {
+  window.location.href='mobile';
+} else if(ua.match(/Mobile/i)=={""}){
+}else{
+}*/
+function mobile() {
+    if ((navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i))) {
+        window.location.href='mobile';
+    }
+    else {
+    }
+}
+mobile();
 //百度分享
   window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"16"},"slide":{"type":"slide","bdImg":"0","bdPos":"left","bdTop":"190.5"}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
 //end

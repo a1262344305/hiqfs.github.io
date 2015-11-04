@@ -1,6 +1,8 @@
 <head>
 <link rel="stylesheet" href="http://apps.bdimg.com/libs/jquerymobile/1.4.5/jquery.mobile-1.4.5.css">
 <meta charset="utf-8">
+<title>hifs mobile comment</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
 <script src="http://apps.bdimg.com/libs/jquerymobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
 <script src="/mobile/js/init.js" type="text/javascript"></script>
@@ -8,17 +10,22 @@
 <link rel="stylesheet" href="/mobile/css/master.css" media="screen" title="no title" charset="utf-8">
 <link rel="stylesheet" href="/mobile/css/footer.css" media="screen" title="no title" charset="utf-8">
 <link href='https://fonts.lug.ustc.edu.cn/css?family=Clicker+Script|Open+Sans:400,300' rel='stylesheet' type="text/css">
+<script type="text/javascript" src="http://api.hitokoto.us/rand?encode=js&charset=utf-8"></script>
 </head>
 <body>
 <div data-role="page">
-  <div data-role="header">
+  <div data-role="header" data-position="fixed">
     <center>
     <p>欢迎访问Hifs留言板</p>
-    <center> 
+    <center>
   </div>
   <div class="mobile">
   <div data-role="content">
-    <p>Hello world！</p>
+    <center>
+    <p>花开花落 物是人非<br>
+一个分享琐事的小网站 </p>
+    <script>hitokoto()</script><br>
+  </center>
     <div id="commit"></div>
   </div>
 </div>
