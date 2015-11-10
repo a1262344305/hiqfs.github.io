@@ -5,11 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
 <script src="http://apps.bdimg.com/libs/jquerymobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
-<script src="/mobile/js/init.js" type="text/javascript"></script>
 <script src="/mobile/js/comment.js" type="text/javascript"></script>
 <link rel="stylesheet" href="/mobile/css/master.css" media="screen" title="no title" charset="utf-8">
 <link rel="stylesheet" href="/mobile/css/footer.css" media="screen" title="no title" charset="utf-8">
-<script type="text/javascript" src="http://api.hitokoto.us/rand?encode=js&charset=utf-8"></script>
+<script src="/mobile/js/init.js" type="text/javascript"></script>
+<script type="text/javascript" src="http://api.hitokoto.us/rand?encode=jsc"></script>
 </head>
 <body>
 <div data-role="page">
@@ -23,7 +23,7 @@
     <center>
     <p>花开花落 物是人非<br>
 一个分享琐事的小网站 </p>
-    <script>hitokoto()</script><br>
+<a id="hitokoto" onclick="hius();"></a>
   </center>
     <div id="commit"></div>
   </div>
@@ -31,10 +31,10 @@
   <div data-role="footer">
     <center>
     <p>by:阳光下的微笑</p>
-    <a href="http://hifs.tk/" data-role="button"  data-iconpos="notext" data-icon="home" data-inline="true" >首页 </a>
-    <a href="http://hifs.tk/" data-role="button"  data-iconpos="notext" data-icon="info" data-inline="true" >关于 </a>
-    <a href="http://hifs.tk/" data-role="button"  data-iconpos="notext" data-icon="star" data-inline="true" >联系 </a>
-    <div id = "footer"></div>
+    <a href="/" data-role="button"  data-iconpos="notext" data-icon="home" data-inline="true" >首页 </a>
+    <a href="/mobile/About.htm" data-role="button"  data-iconpos="notext" data-icon="info" data-inline="true" >关于 </a>
+    <a href="mailto:i@hifs.tk" data-role="button"  data-iconpos="notext" data-icon="star" data-inline="true" >联系 </a>
+    <div class="footer"><p>life,love,linux</p></div>
    </center>
   </div>
 </div>

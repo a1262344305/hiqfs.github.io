@@ -10,6 +10,7 @@
 	<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
 	<script src="http://apps.bdimg.com/libs/jquerymobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
 	<script type="text/javascript" src="/mobile/js/init.js"></script>
+	<script type="text/javascript" src="http://api.hitokoto.us/rand?encode=jsc&fun=sync"></script>
 </head>
 <body>
 	<div data-role="page">
@@ -27,17 +28,17 @@
 							<p>一个默默无闻的小屁孩</p>
 								<code>
 									没啥可写<br>
-									  <script>hitokoto()</script><br>
+								<a id="hitokoto" onclick="hius();"></a>
 								</code>
 			</div>
 		</div>
 				<div data-role="footer">
 					<center>
 					<p>by:阳光下的微笑</p>
-					<a href="http://hifs.tk/" data-role="button"  data-iconpos="notext" data-icon="home" data-inline="true" >首页 </a>
-					<a href="http://hifs.tk/" data-role="button"  data-iconpos="notext" data-icon="info" data-inline="true" >关于 </a>
-					<a href="http://hifs.tk/" data-role="button"  data-iconpos="notext" data-icon="star" data-inline="true" >联系 </a>
-					<div id = "footer"></div>
+					<a href="/" data-role="button"  data-iconpos="notext" data-icon="home" data-inline="true" >首页 </a>
+					<a href="./About.htm" data-role="button"  data-iconpos="notext" data-icon="info" data-inline="true" >关于 </a>
+					<a href="mailto:i@hifs.tk" data-role="button"  data-iconpos="notext" data-icon="star" data-inline="true" >联系 </a>
+					<div class="footer"><p>life,love,linux</p></div>
 				 </center>
 			</div>
 	</div>
