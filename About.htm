@@ -3,16 +3,42 @@
 <head>
 	<title>关于我</title>
 	<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+	<script src="http://apps.bdimg.com/libs/jquery/2.1.1/jquery.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="/css/master.css">
 	<script type="text/javascript" src="/js/init.js"></script>
 </head>
-<body>
+<body id="root">
 <center>
-	<p>
-	微博<br>
-	<p>
-	<iframe width="350" height="110" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=350&height=110&fansRow=2&ptype=0&speed=0&skin=10&isTitle=1&noborder=1&isWeibo=1&isFans=1&uid=5080943186&verifier=e515c4da&dpc=1"></iframe>
-	<p>一个默默无闻的小屁孩</p>
+	<div class="About" id="hcon">
+			<p>
+				微博<br>
+				<p><!--nb居然要写这么多参数-->
+					<iframe
+					width="80%"
+					height="550"
+					class="share_self"
+					frameborder="0"
+					scrolling="no"
+					src="http://widget.weibo.com/weiboshow/index.php?
+					language=&
+					width=0&
+					height=0&
+					fansRow=2&
+					ptype=1&
+					speed=0&
+					skin=10&
+					isTitle=1&
+					noborder=1&
+					isWeibo=1&
+					isFans=1&
+					uid=5080943186&
+					verifier=e515c4da&
+					dpc=1">
+					</iframe>
+					<p>一个默默无闻的小屁孩</p>
+							<p>没啥可写</p><br>
+						<a id="hitokoto" onclick="hius();delete_us();"></a>
+		</div>
 	<div id = "footer"></div>
 	<script src="/js/init.js" charset="utf-8"></script>
 </center>

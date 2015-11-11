@@ -1,16 +1,18 @@
-<!DOCTYPE html>
+<!DOCTYPE html>臣妾做不到啊~
+
 <html>
 <head>
 	<title>关于我</title>
 	<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<link rel="stylesheet" href="http://apps.bdimg.com/libs/jquerymobile/1.4.5/jquery.mobile-1.4.5.css">
 	<link rel="stylesheet" href="/mobile/css/master.css" media="screen" title="no title" charset="utf-8">
 	<link rel="stylesheet" href="/mobile/css/footer.css" media="screen" title="no title" charset="utf-8">
+	<!--link rel="stylesheet" href="/mobile/css/About.css" media="screen" title="no title" charset="utf-8"-->
 	<script type="text/javascript" src="http://api.hitokoto.us/rand?encode=js&charset=utf-8"></script>
 	<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
 	<script src="http://apps.bdimg.com/libs/jquerymobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
 	<script type="text/javascript" src="/mobile/js/init.js"></script>
-	<script type="text/javascript" src="http://api.hitokoto.us/rand?encode=jsc&fun=sync"></script>
 </head>
 <body>
 	<div data-role="page">
@@ -21,15 +23,38 @@
 		</div>
 		<div class="mobile">
 		<div data-role="content">
+			<div class="About">
 					<p>
 						微博<br>
-						<p>
-							<iframe  class="share_self"  frameborder="0" scrolling="yes" src="http://widget.weibo.com/weiboshow/index.php?language=&width=350&height=110&fansRow=2&ptype=0&speed=0&skin=10&isTitle=1&noborder=1&isWeibo=1&isFans=1&uid=5080943186&verifier=e515c4da&dpc=1"></iframe>
+						<p><!--nb居然要写这么多参数-->
+							<iframe
+							width="100%"
+							height="550"
+							class="share_self"
+							frameborder="0"
+							scrolling="no"
+							src="http://widget.weibo.com/weiboshow/index.php?
+							language=&
+							width=0&
+							height=0&
+							fansRow=2&
+							ptype=1&
+							speed=0&
+							skin=10&
+							isTitle=1&
+							noborder=1&
+							isWeibo=1&
+							isFans=1&
+							uid=5080943186&
+							verifier=e515c4da&
+							dpc=1">
+							</iframe>
 							<p>一个默默无闻的小屁孩</p>
 								<code>
 									没啥可写<br>
-								<a id="hitokoto" onclick="hius();"></a>
+								<a id="hitokoto" onclick="hius();delete_us();"></a>
 								</code>
+				</div>
 			</div>
 		</div>
 				<div data-role="footer">
