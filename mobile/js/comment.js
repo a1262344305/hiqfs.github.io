@@ -1,8 +1,8 @@
 $(document).ready(function() {
 comment=$.ajax({url:"http://server-php.coding.io/read.php",async:false});
 var com = comment.responseText;
-var commit = com.split("|");
-document.getElementById("commit").innerHTML=commit;
+//var commit = com.split("|");
+document.getElementById("commit").innerHTML=com;
 });
   function tijiaopost() {
     if (document.getElementById("ti").value) {

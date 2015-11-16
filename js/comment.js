@@ -1,7 +1,7 @@
 $(document).ready(function() {
 comment=$.ajax({url:"http://server-php.coding.io/read.php",async:false});
 var com = comment.responseText;
-var commit = com.split("|");
+var commit = com.replace(/\n/g,"<br>");
 document.getElementById("commit").innerHTML=commit;
 });
   function tijiaopost() {
