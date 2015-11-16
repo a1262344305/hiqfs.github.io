@@ -1,4 +1,4 @@
-@import url(https://fonts.lug.ustc.edu.cn/css?family=Clicker+Script|Open+Sans:400,300);
+@import url(http://fonts.useso.com/css?family=Clicker+Script|Open+Sans:400,300);
 comment{
   font-size: 100%;
 }
@@ -23,6 +23,9 @@ body{
 }
 center p{
 }
+#commit{
+  clear:both;
+}
 comment img{
   height:24px;
   width:24px;
@@ -36,4 +39,12 @@ text{
 }
 #hitokoto{
   color:#00a3cf;
+}
+#ti{
+      resize: none;
+}
+#jiao{
+  float:right;
+}
+.but{
 }
