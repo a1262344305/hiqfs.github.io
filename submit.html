@@ -5,8 +5,8 @@
     <title>submit from</title>
     <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.js"></script>
     <script type="text/javascript" src="./js/init.js"></script>
-    <script type="text/javascript" src="./js/background.js"></script>
     <script type="text/javascript" src="./js/comment.js"></script>
+    <script type="text/javascript" src="./js/update.js"></script>
     <link type="text/css" rel="stylesheet" href="./css/master.css">
     <link type="text/css" rel="stylesheet" href="./css/comment.css">
   </head>
@@ -14,9 +14,9 @@
     <div>
     <div class="submit">
     <p>要提交的地址</p>
-    <textarea id="ti" class="ti" name="comment" form = "comment" wrap="logical"></textarea><br>
-    <button id = "jiao" onmousedown="tijiaopost();">发送</button>
-  </form>
+  <input name="token" type="hidden" id="token" value="Hi qiniu" >
+  <input name="file" type="file" id="qifile" />
+  <button  onclick="UpladFile();">发送</button>
 </div>
   <div id= "commit"></div>
   <div id = "footer"></div>

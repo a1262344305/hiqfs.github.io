@@ -16,7 +16,7 @@ document.getElementById("commit").innerHTML=commit;
         $('#commit').html(function(){
           comment=$.ajax({url:"http://server-php.coding.io/read.php",async:false});
           var com = comment.responseText;
-          var commit = com.split("|");
+          var commit = com.replace(/\n/g,"<br>");
           return commit;
         });
       },
@@ -29,10 +29,11 @@ document.getElementById("commit").innerHTML=commit;
       async:"true",
       cache:"false"
     });
+    return tijiaopostand;
   }else {
     alert("总得写些什么吧！");
   }
-  }
+}
 /*
 $("#comment").ajaxSubmit({
                     type: 'post',
