@@ -1,5 +1,5 @@
 $(document).ready(function() {
-comment=$.ajax({url:"http://server-php.coding.io/read.php",async:false});
+comment=$.ajax({url:"http://server-php.coding.io/read.php?line=1",async:false});
 var com = comment.responseText;
 var commit = com.replace(/\n/g,"<br>");
 document.getElementById("commit").innerHTML=commit;
@@ -14,7 +14,7 @@ document.getElementById("commit").innerHTML=commit;
         alert("success");
         $('#commit').empty()
         $('#commit').html(function(){
-          comment=$.ajax({url:"http://server-php.coding.io/read.php",async:false});
+          comment=$.ajax({url:"http://server-php.coding.io/read.php?line=1",async:false});
           var com = comment.responseText;
           var commit = com.replace(/\n/g,"<br>");
           return commit;
@@ -33,6 +33,15 @@ document.getElementById("commit").innerHTML=commit;
   }else {
     alert("总得写些什么吧！");
   }
+}
+function ye(id) {
+  $('#commit').empty()
+  $('#commit').html(function(){
+    comment=$.ajax({url:"http://server-php.coding.io/read.php?line="+id,async:false});
+    var com = comment.responseText;
+    var commit = com.replace(/\n/g,"<br>");
+    return commit;
+  });
 }
 /*
 $("#comment").ajaxSubmit({
