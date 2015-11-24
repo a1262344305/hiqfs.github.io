@@ -11,6 +11,7 @@ function hius() {
   setTimeout(function(){
     var hjs=document.createElement('script');
     hjs.setAttribute('id','us');
+    hjs.setAttribute('async','async');
     hjs.setAttribute('src','http://api.hitokoto.us/rand?encode=jsc');
     document.body.appendChild(hjs);
   },100);
@@ -22,4 +23,10 @@ function mobile() {
       window.location.href='/';
     }
 }
+/*
+$(document).ready(function(){
+  $("[hash!='#']").click(function(){
+    $("im:img").css("height="300%" width="300%" ");
+  });
+});*/
 //mobile();

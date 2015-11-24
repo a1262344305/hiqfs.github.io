@@ -31,8 +31,7 @@ function mobile() {
     }
     else {
     }
-}
-mobile();
+}mobile();
 function hitokoto(hi) {
   $('#hitokoto').empty();
   $('#hitokoto').html(hi.hitokoto);
@@ -46,28 +45,31 @@ function hius() {
   setTimeout(function(){
     var hjs=document.createElement('script');
     hjs.setAttribute('id','us');
+    hjs.setAttribute('async','async');
     hjs.setAttribute('src','http://api.hitokoto.us/rand?encode=jsc');
     document.body.appendChild(hjs);
   },100);
 }
-//百度分享
+function baidufen(argument) {//百度分享
   window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"16"},"slide":{"type":"slide","bdImg":"0","bdPos":"left","bdTop":"190.5"}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
-//end
-$(document).ready(function(){
-    document.getElementById("footer").innerHTML="<div class="
-      +"footer"
-      +"><a href="
-      +"http://hifs.tk"
-      +">hifs.tk"
-      +" "
-      +"</a><a href="
-      +"mailto:i@hifs.tk"
-      +">联系我</a> <a href="
-      +"http://hifs.tk/About.htm"
-      +">关于我</a><p>"
-      +"life,love,linux"
-      +"</p></div>";
-});
+}baidufen();
+function footer(argument) {
+  $(document).ready(function(){
+      document.getElementById("footer").innerHTML="<div class="
+        +"footer"
+        +"><a href="
+        +"http://hifs.tk"
+        +">hifs.tk"
+        +" "
+        +"</a><a href="
+        +"mailto:i@hifs.tk"
+        +">联系我</a> <a href="
+        +"http://hifs.tk/About.htm"
+        +">关于我</a><p>"
+        +"life,love,linux"
+        +"</p></div>";
+  });
+}footer();
 //document.getElementById("footer").innerHTML="<div class="+"footer"+"><a href="+"http://hifs.tk"+">hifs.tk"+" "+"</a><a href="+"mailto:i@hifs.tk"+">联系我</a> <a href="+"http://hifs.tk/About.htm"+">关于我</a><p style='color: darkslategray; font-family: "+"clicker script"+","+"segoe script"+","+"Comic Sans MS"+"; font-size: 28px; margin-top: 1px; text-shadow: none;'>"+"life,love,linux"+"</p></div>";
 /* htmlobj=$.ajax({url:"http://server-php.coding.io/imgaddress.php",async:true});
 var address=htmlobj.responseText;

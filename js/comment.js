@@ -42,7 +42,16 @@ function ye(id) {
     var commit = com.replace(/\n/g,"<br>");
     return commit;
   });
+  imm();
 }
+function imm(argument) {
+$(document).ready(function(){
+    $("im").html(function() {
+      $(this).append("</im>")
+      return "<img src='"+"http://7xljsf.com1.z0.glb.clouddn.com/"+$(this).attr("hash")+"' onclick='daa()'></img>";
+    });
+});
+}imm();
 /*
 $("#comment").ajaxSubmit({
                     type: 'post',
