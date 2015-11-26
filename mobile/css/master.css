@@ -46,5 +46,6 @@ text{
 #jiao{
   float:right;
 }
-.but{
+a{
+  text-decoration: none;
 }

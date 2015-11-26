@@ -1,8 +1,19 @@
 @charset "UTF-8";
-body {
+/*body {
   background-image: url(http://server-php.coding.io/bing.php);
   background-size:cover;
   background-attachment:fixed;
   background-repeat:no-repeat;
   background-position:center;
+}
+*/
+#hcon{
+  position:absolute;
+  top:50%;
+  left:50%;
+  margin-top:-250px;
+  margin-left:-250px;
+   /*此时宽和高都要固定*/
+   width:500px;
+   height:500px;  
 }

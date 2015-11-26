@@ -3,6 +3,7 @@ comment=$.ajax({url:"http://server-php.coding.io/read.php?line=1",cache:false,as
 var com = comment.responseText;
 var commit = com.replace(/\n/g,"<br>");
 document.getElementById("commit").innerHTML=commit;
+imm();
 });
   function tijiaopost() {
     if (document.getElementById("ti").value) {
@@ -19,6 +20,7 @@ document.getElementById("commit").innerHTML=commit;
           var commit = com.replace(/\n/g,"<br>");
           return commit;
         });
+        imm();
       },
       error:function (XMLHttpRequest, textStatus, errorThrown) {
         console.log(XMLHttpRequest);
@@ -51,7 +53,7 @@ $(document).ready(function(){
       return "<img src='"+"http://7xljsf.com1.z0.glb.clouddn.com/"+$(this).attr("hash")+"' onclick='daa()'></img>";
     });
 });
-}imm();
+}
 /*
 $("#comment").ajaxSubmit({
                     type: 'post',

@@ -1,6 +1,7 @@
 @charset "UTF-8";
 #commit{
   text-align: center;
+  position:relative;
 }
 .comm{
   display: block;
@@ -54,8 +55,9 @@
   text-align:left;
   left: 10%;
   width: 80%;
-  margin-bottom: 50px;
-  margin-top: 30px;
+  top:30px;
+  float:top;
+  margin-bottom: 80px;
 }
 textarea{
   resize:none;
@@ -94,6 +96,7 @@ te{
   margin-bottom: 20px;
   margin-top: 10px;
   min-width: 500px;
+  border-radius: 5px;
 }
 .comment p{
   margin-top: 0px;
