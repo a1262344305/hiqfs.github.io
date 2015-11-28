@@ -30,11 +30,18 @@ function mobile() {
         window.location.href='mobile';
     }
     else {
+        window.location.href='/';
     }
-}mobile();
+}
 function hitokoto(hi) {
   $('#hitokoto').empty();
-  $('#hitokoto').html(hi.hitokoto);
+  if(hi.source){
+    text=hi.hitokoto+"<br>来自："+hi.source;
+  }
+  else {
+    text=hi.hitokoto;
+  }
+  $('#hitokoto').html(text);
 }
 function delete_us() {
   var us=document.getElementById('root');

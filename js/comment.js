@@ -12,7 +12,8 @@ imm();
       type:"post",
       data:{comment:document.getElementById("ti").value},
       success:function(data,textStatus) {
-        alert("success");
+        alert("发送成功");
+        $("#ti").val("");
         $('#commit').empty()
         $('#commit').html(function(){
           comment=$.ajax({url:"http://server-php.coding.io/read.php?line=1",cache:false,async:false});
