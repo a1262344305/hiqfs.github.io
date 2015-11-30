@@ -31,14 +31,15 @@
 <body id="root">
   <nav class="navbar navbar-default" role="navigation">
    <div class="navbar-header">
-      <a class="navbar-brand" href="http://hifs.tk">小屁孩的网站</a>
+      <a class="navbar-brand" href="/">小屁孩的网站</a>
    </div>
    <div>
       <ul class="nav navbar-nav">
          <li><a href="/">首页</a></li>
-         <li class="active"><a href="#">留言板</a></li>
+         <li class="active"><a>留言板</a></li>
          <li><a href="/About.htm">关于我</a></li>
       </ul>
+      <iframe class="tianqi" scrolling="no"  frameborder="0" allowtransparency="true" src="http://i.tianqi.com/index.php?c=code&id=12&icon=1&num=5"></iframe>
    </div>
 </nav>
 <!--内容开始-->
@@ -56,7 +57,15 @@ Qiniuo:<a href="http://qqfs.qiniudn.com/">qqfs.qiniudn.com<a><br>
 <textarea id="ti" class="form-control" rows="5" name="comment" form = "comment" wrap="logical"></textarea><br>
 <button id = "jiao" onclick="tijiaopost();">发送</button><te>支持html,css,javascript</te>
 </div >
-<div id= "commit"></div>
+<div id= "commit">
+  <div class="progress progress-striped active tiao">
+   <div class="progress-bar progress-bar-success" role="progressbar"
+      aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"
+      style="width: 100%;">
+   </div>
+</div>
+  加载中...
+</div>
 </div>
 <!--div id="disqus_thread" class="base"></div>
 <div class="ds-thread" data-thread-key="1d6a" data-title="Home" data-url="http://hifs.tk/"></div>
