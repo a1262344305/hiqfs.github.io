@@ -27,7 +27,7 @@ if(ua.match(/Mobile/i)=={"mobile"}) {
 }*/
 function ba(argument) {
     var index = Math.floor(Math.random()*(11-1+1)+1);
-     $("#root").css("background-image","url(http://7xljsf.com1.z0.glb.clouddn.com/bk"+index+".jpg）");
+     $("#root").css("background-image","url(http://7xljsf.com1.z0.glb.clouddn.com/bk"+index+".jpg)");
 }
 function mobile() {
     if ((navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i))) {
