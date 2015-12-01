@@ -34,7 +34,6 @@ function mobile() {
         window.location.href='mobile';
     }
     else {
-        window.location.href='/';
     }
 }
 function hitokoto(hi) {

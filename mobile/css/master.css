@@ -6,7 +6,6 @@ p a{
   text-decoration:none;
 }
 .mobile{
-  background-image: url(http://qqfs.qiniudn.com/background.png);
   background-size: contain;
   background-attachment:fixed;
 }
