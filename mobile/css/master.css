@@ -1,6 +1,7 @@
 @import url(/css/font.css);
 comment{
   font-size: 100%;
+  text-shadow:1px 1px 3px #000;
 }
 p a{
   text-decoration:none;
@@ -44,7 +45,16 @@ text{
 }
 #jiao{
   float:right;
+    font-weight: normal;
+    font-size: 12px;
+    text-shadow: none;
+    border: 0;
+    background: #00a3cf;
+    color: #fff;
 }
 a{
   text-decoration: none;
+}
+ys{
+  text-shadow:1px 1px 3px #000;
 }
