@@ -56,5 +56,8 @@ a{
   text-decoration: none;
 }
 ys{
-  text-shadow:1px 1px 3px #000;
+  text-shadow:1px 1px 2px #000;
+}
+#hitokoto{
+  text-shadow:1px 1px 2px #000;
 }
