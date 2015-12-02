@@ -5,7 +5,6 @@ function commit() {
     url:serverphp+"/read.php?line=1",
     cache:false,
     async:false,
-    dataType: "json",
     error:function (XMLHttpRequest, textStatus, errorThrown){
       document.getElementById("commit").innerHTML="<div class='comment' ><p>/(ㄒoㄒ)/~~ 加载失败....</p></div>";
     },
