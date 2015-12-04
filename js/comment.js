@@ -31,11 +31,11 @@ function commit() {
             var com = comment.responseText;
             var commit = com.replace(/\n/g,"<br>");
             return commit;
+          });
         }else {
           alert("额，发送失败   _(:qゝ∠)_  \\n ",date);
           console.log(date);
         }
-        });
         imm();
       },
       error:function (XMLHttpRequest, textStatus, errorThrown) {
