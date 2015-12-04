@@ -6,7 +6,7 @@ function commit() {
     cache:false,
     async:false,
     error:function (XMLHttpRequest, textStatus, errorThrown){
-      document.getElementById("commit").innerHTML="<div class='comment' ><p>/(ㄒoㄒ)/~~ 加载失败....</p></div>";
+      document.getElementById("commit").innerHTML="<div class='comment' ><p> _(:qゝ∠)_  错误：加载超时，刷新看看....</p></div>";
     },
   });
   var com = comment.responseText;
@@ -22,14 +22,19 @@ function commit() {
       type:"post",
       data:{comment:document.getElementById("ti").value},
       success:function(data,textStatus) {
-        alert("发送成功");
-        $("#ti").val("");
-        $('#commit').empty()
-        $('#commit').html(function(){
-          comment=$.ajax({url:serverphp+"/read.php?line=1",cache:false,async:false});
-          var com = comment.responseText;
-          var commit = com.replace(/\n/g,"<br>");
-          return commit;
+        if(date=="OK"){
+          alert("发送成功");
+          $("#ti").val("");
+          $('#commit').empty()
+          $('#commit').html(function(){
+            comment=$.ajax({url:serverphp+"/read.php?line=1",cache:false,async:false});
+            var com = comment.responseText;
+            var commit = com.replace(/\n/g,"<br>");
+            return commit;
+        }else {
+          alert("额，发送失败   _(:qゝ∠)_  \\n ",date);
+          console.log(date);
+        }
         });
         imm();
       },
@@ -142,7 +147,6 @@ function json_commentxml(argument,mnum) {
     return tmp;
   });
   return xml;
-  // body...
 }
 /*
 $("#comment").ajaxSubmit({
