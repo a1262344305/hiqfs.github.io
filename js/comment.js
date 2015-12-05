@@ -22,7 +22,7 @@ function commit() {
       type:"post",
       data:{comment:document.getElementById("ti").value},
       success:function(data,textStatus) {
-        if(date=="OK"){
+        if(data=="OK"){
           alert("发送成功");
           $("#ti").val("");
           $('#commit').empty()
@@ -33,8 +33,8 @@ function commit() {
             return commit;
           });
         }else {
-          alert("额，发送失败   _(:qゝ∠)_  \\n ",date);
-          console.log(date);
+          alert("额，发送失败   _(:qゝ∠)_  \\n ",data);
+          console.log(data);
         }
         imm();
       },
