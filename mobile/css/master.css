@@ -42,6 +42,7 @@ text{
 }
 #ti{
       resize: none;
+      text-shadow:1px 1px 5px #000;
 }
 #jiao{
   float:right;
@@ -61,4 +62,8 @@ ys{
 #hitokoto{
   text-shadow:1px 1px 2px #000;
   text-decoration: none;
+}
+im img{
+  width: 100px;
+  height: 100px;
 }

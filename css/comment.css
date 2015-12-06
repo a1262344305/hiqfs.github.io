@@ -28,7 +28,7 @@
 .comm comment{
   width: 100%;
   display: block;
-  height: 100px;
+  min-height: 100px;
   text-align:left;
   position:relative;
   //border-top: 1px solid #E0E0E0;
@@ -63,6 +63,7 @@ textarea{
   resize:none;
   border: 1px solid #A9A9A9;
   width: 100%;
+  text-shadow:1px 1px 5px #000;
 }
 .com p{
   overflow:hidden;
@@ -107,4 +108,8 @@ te{
 ys{
   color: #000;
   text-shadow:1px 1px 5px #000;
+}
+im img{
+  width: 100px;
+  height: 100px;
 }

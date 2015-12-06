@@ -33,7 +33,7 @@ function commit() {
             return commit;
           });
         }else {
-          alert("额，发送失败   _(:qゝ∠)_  \\n ",data);
+          alert("额，发送失败   _(:qゝ∠)_  \n ",data);
           console.log(data);
         }
         imm();
@@ -71,7 +71,7 @@ function imm(argument) {
 $(document).ready(function(){
     $("im").html(function() {
       $(this).append("</im>")
-      return "<img src='"+"http://7xljsf.com1.z0.glb.clouddn.com/"+$(this).attr("hash")+"' onclick='daa()'></img>";
+      return "<img src='"+"http://7xljsf.com1.z0.glb.clouddn.com/"+$(this).attr("hash")+"' onclick='daa(\""+$(this).attr("hash")+"\")'></img>";
     });
 });
 }
@@ -147,6 +147,16 @@ function json_commentxml(argument,mnum) {
     return tmp;
   });
   return xml;
+}
+function daa(argument) {
+  if($("[src$='"+argument+"']").css("width")<="100px"){
+    $("[src$='"+argument+"']").css("width","auto");
+    $("[src$='"+argument+"']").css("height","auto");
+  }
+  else {
+    $("[src$='"+argument+"']").css("width","100px");
+    $("[src$='"+argument+"']").css("height","100px");
+  }
 }
 /*
 $("#comment").ajaxSubmit({
