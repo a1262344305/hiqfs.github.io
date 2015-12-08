@@ -44,7 +44,20 @@ function commit() {
     tijiaopostand = $.ajax({
       url:serverphp+"/write.php",
       type:"post",
-      data:{comment:document.getElementById("ti").value},
+      data:{
+        comment:function(argument){
+          tmpd="";
+          for(var i = 0; i < document.getElementById("ti").value.length; i++){
+            if(document.getElementById("ti").value.codePointAt(i)>65535){
+              tmpd+="&#"+document.getElementById("ti").value.codePointAt(i)+";";
+              i++;
+            }else{
+              tmpd+=String.fromCharCode(document.getElementById("ti").value.codePointAt(i));
+            }
+          }//哈哈，可以支持emoji了😆
+          return tmpd;
+        }
+      },
       success:function(data,textStatus) {
         if(data=="OK"){
           alert("发送成功");
@@ -172,6 +185,16 @@ function cornd(){
   }).responseJSON;
   if(window.cron<cron){
   }//这里的1000表示1秒有1000毫秒,1分钟有60秒,5表示总共5分钟
+}
+function AsciiToUnicode() {
+    if (document.getElementById('content').value == '') {
+	alert('文本框中没有代码！');
+	return;
+	}
+    document.getElementById('result').value = '';
+	for (var i = 0; i < document.getElementById('content').value.length; i++)
+	    result.value += '&#' + document.getElementById('content').value.charCodeAt(i) + ';';
+	document.getElementById('content').focus();
 }
 /*
 $("#comment").ajaxSubmit({
