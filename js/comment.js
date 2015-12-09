@@ -1,4 +1,4 @@
-var serverphp = "-http://server-php.coding.io";
+var serverphp = "http://server-php.coding.io";
 function jsonhook(){
   window.commentjson=$.ajax({
         url:serverphp+"/jsonread.php",
@@ -168,7 +168,11 @@ function json_commentxml(argument,mnum) {
 }
 function daa(argument) {
   if($("[src$='"+argument+"']").css("width")<="100px"){
+<<<<<<< HEAD
     $("[src$='"+argument+"']").css("width","auto");
+=======
+    $("[src$='"+argument+"']").css("width","100%");
+>>>>>>> b61d24dc8ee49f147e386ab73d23776f4e639b6c
     $("[src$='"+argument+"']").css("height","auto");
   }
   else {
