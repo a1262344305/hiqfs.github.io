@@ -1,0 +1,55 @@
+<head>
+<link rel="stylesheet" href="http://apps.bdimg.com/libs/jquerymobile/1.4.5/jquery.mobile-1.4.5.css">
+<meta charset="utf-8">
+<title>hifs mobile comment</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="http://apps.bdimg.com/libs/jquerymobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+<script src="/js/comment.js" type="text/javascript"></script>
+<link rel="stylesheet" href="/mobile/css/master.css" media="screen" title="no title" charset="utf-8">
+<link rel="stylesheet" href="/mobile/css/footer.css" media="screen" title="no title" charset="utf-8">
+<link rel="stylesheet" href="/css/font.css" media="screen" title="no title" charset="utf-8">
+<link href="http://apps.bdimg.com/libs/bootstrap/3.3.4/css/bootstrap-theme.min.css" rel="stylesheet">
+<link href="http://apps.bdimg.com/libs/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
+<script src="http://apps.bdimg.com/libs/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script src="/js/init.js" type="text/javascript"></script>
+</head>
+<body id="root">
+<div data-role="page" data-ajax="false">
+  <div data-role="header" data-position="fixed">
+    <center>
+    <p>欢迎访问Hifs留言板</p>
+    <center>
+  </div>
+  <div class="mobile">
+  <div data-role="content">
+    <center>
+    <p>花开花落 物是人非<br>
+一个分享琐事的小网站 </p>
+<a id="hitokoto" onclick="hius();delete_us();"></a>
+  </center>
+    <textarea id="ti" class="ti" name="comment" form="comment" wrap="logical"></textarea>
+    <button  data-icon="check" data-iconpos="left" data-theme="b" class="ui-shadow" data-mini="true" data-inline="true" id="jiao" onclick="tijiaopost();">发送</button>
+    <div id="commit">
+      <div class="progress progress-striped active tiao">
+       <div class="progress-bar progress-bar-success" role="progressbar"
+          aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"
+          style="width: 100%;">
+          想一个人安静会
+          <!--努力加载中...-->
+       </div>
+    </div>
+  </div>
+</div>
+  <div data-role="footer">
+    <center>
+    <p>by:阳光下的微笑</p>
+    <a href="http://hifs.tk/mobile/" data-role="button"  data-iconpos="notext" data-icon="home" data-inline="true" >首页 </a>
+    <a href="http://hifs.tk/mobile/About.htm" data-role="button"  data-iconpos="notext" data-icon="info" data-inline="true" >关于 </a>
+    <a href="mailto:i@hifs.tk" data-role="button"  data-iconpos="notext" data-icon="star" data-inline="true" >联系 </a>
+    <div class="footer"><p>life,love,linux</p></div>
+   </center>
+  </div>
+</div>
+<script>hius()</script>
+</body>

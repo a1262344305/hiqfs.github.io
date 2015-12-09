@@ -1,0 +1,69 @@
+@import url(/css/font.css);
+comment{
+  font-size: 100%;
+  text-shadow:1px 1px 3px #000;
+}
+p a{
+  text-decoration:none;
+}
+.mobile{
+  background-size: contain;
+  background-attachment:fixed;
+}
+time{
+  font-size: 50%;
+  color: #A9A9A9;
+}
+p{
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+body{
+    font-family:Source Han Sans CN,微软雅黑,Helvetica,STHeiti,Droid Sans Fallback;
+}
+center p{
+}
+#commit{
+  clear:both;
+}
+comment img{
+  height:24px;
+  width:24px;
+}
+.hitokoto a{
+  text-decoration:none;
+  text-align: center;
+}
+text{
+  text-align: center;
+}
+#hitokoto{
+  color:#00a3cf;
+}
+#ti{
+      resize: none;
+      text-shadow:1px 1px 5px #000;
+}
+#jiao{
+  float:right;
+    font-weight: normal;
+    font-size: 12px;
+    text-shadow: none;
+    border: 0;
+    background: #00a3cf;
+    color: #fff;
+}
+a{
+  text-decoration: none;
+}
+ys{
+  text-shadow:1px 1px 2px #000;
+}
+#hitokoto{
+  text-shadow:1px 1px 2px #000;
+  text-decoration: none;
+}
+im img{
+  width: 100px;
+  height: 100px;
+}
