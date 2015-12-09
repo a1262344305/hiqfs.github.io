@@ -1,4 +1,4 @@
-var serverphp = "http://server-php.coding.io";
+var serverphp = "-http://server-php.coding.io";
 function jsonhook(){
   window.commentjson=$.ajax({
         url:serverphp+"/jsonread.php",
