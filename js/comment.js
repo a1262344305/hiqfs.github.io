@@ -168,7 +168,7 @@ function json_commentxml(argument,mnum) {
 }
 function daa(argument) {
   if($("[src$='"+argument+"']").css("width")<="100px"){
-    $("[src$='"+argument+"']").css("width","auto");
+    $("[src$='"+argument+"']").css("width","100%");
     $("[src$='"+argument+"']").css("height","auto");
   }
   else {
