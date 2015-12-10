@@ -1,4 +1,4 @@
-var serverphp = "-http://server-php.coding.io";
+var serverphp = "http://server-php.coding.io";
 function jsonhook(){
   window.commentjson=$.ajax({
         url:serverphp+"/jsonread.php",
@@ -54,7 +54,7 @@ function commit() {
             }else{
               tmpd+=String.fromCharCode(document.getElementById("ti").value.codePointAt(i));
             }
-          }//哈哈，可以支持emoji了😆 
+          }//哈哈，可以支持emoji了😆
           return tmpd;
         }
       },
