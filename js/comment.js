@@ -1,7 +1,7 @@
 var serverphp = "http://server-php.coding.io";
-function jsonhook(){
+function jsonhook(id){
   window.commentjson=$.ajax({
-        url:serverphp+"/jsonread.php",
+        url:serverphp+"/jsonread.php?line="+id,
         cache:false,
         async:false,
         dataType: "json",
@@ -18,7 +18,8 @@ function jsonhook(){
 }
 $(document).ready(function() {
   function init(argument) {
-    jsonhook();
+    jsonhook(1);
+    $("#commit").fadeIn("slow");
     json_comment(1);
     window.id=1;
   }init();
@@ -55,15 +56,16 @@ function commit() {
               tmpd+=String.fromCharCode(document.getElementById("ti").value.codePointAt(i));
             }
           }//哈哈，可以支持emoji了😆
+          window.tmop=tmpd;
           return tmpd;
         }
       },
       success:function(data,textStatus) {
         if(data=="OK"){
           alert("发送成功");
-          $("#ti").val("");
-          jsonhook();
-          json_comment(window.id);
+            jsonhook(i);
+            $('.submit').append(Loging_xml(window.commentjson.responseJSON));
+            $("#ti").val("");
         }else {
           alert("额，发送失败   _(:qゝ∠)_  \n ",data);
           console.log(data);
@@ -108,8 +110,12 @@ $(document).ready(function(){
 });
 }
 function json_comment(id) {
+  if(id==1){
   $('#commit').empty()
-  $('#commit').html(json_commentxml(commentjson.responseJSON,id));
+}else {
+}
+    $('#commit').html(Loging_xml(window.commentjson.responseJSON));
+  //$('#commit').html(json_commentxml(commentjson.responseJSON,id));
   window.id=id;
 }
 function json_commentxml(argument,mnum) {
@@ -186,15 +192,48 @@ function cornd(){
   if(window.cron<cron){
   }//这里的1000表示1秒有1000毫秒,1分钟有60秒,5表示总共5分钟
 }
-function AsciiToUnicode() {
-    if (document.getElementById('content').value == '') {
-	alert('文本框中没有代码！');
-	return;
-	}
-    document.getElementById('result').value = '';
-	for (var i = 0; i < document.getElementById('content').value.length; i++)
-	    result.value += '&#' + document.getElementById('content').value.charCodeAt(i) + ';';
-	document.getElementById('content').focus();
+$(document).ready(function() {
+          $(window).scroll(function() {
+              //$(document).scrollTop() 获取垂直滚动的距离
+              //$(document).scrollLeft() 这是获取水平滚动条的距离
+              if ($(document).scrollTop()+5>= $(document).height() - $(window).height()) {
+                 if(Loging_xml(window.commentjson.responseJSON)=="木有了"){
+
+                 }else{
+                   jsonhook(++window.id);
+                   $('#commit').append(Loging_xml(window.commentjson.responseJSON));
+                 }
+              }
+          });
+      });
+function Loging_xml(argument) {
+  if(argument.length-1){
+      $("#commit").fadeIn("3000");
+      commithaed="<div class='comm'><div class='com'><comment><p>";
+      commitzhon="</p></comment><time>";
+      commitfooter="</time><br></div></div>";
+      console.log(argument);
+      var commenttmp="";
+      tiao=0;
+      for(i=tiao;i<=tiao+9;i++){
+          commenttmp+=commithaed+argument[i].comment;
+          commenttmp+=commitzhon
+          commenttmp+=argument[i].time+commitfooter;
+      }
+      xml=commenttmp.replace(/\n/g,"<br>");
+      xml=emoji(xml);
+      return xml;
+    }
+    else {
+      return "木有了";
+    }
+}
+function emoji(argument) {
+  text=argument.replace(/\&#[1-9]*;/g,function(emojicode) {
+    var num=parseInt(emojicode.substring(2,emojicode.length-1)).toString(16);
+    return "<span class=\"emoji emoji"+num+"\"></span>";
+  });
+  return text;
 }
 /*
 $("#comment").ajaxSubmit({
