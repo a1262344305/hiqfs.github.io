@@ -64,8 +64,10 @@ function commit() {
       success:function(data,textStatus) {
         if(data=="OK"){
           alert("发送成功");
-            jsonhook(i);
-            $('.submit').append(Loging_xml(window.commentjson.responseJSON));
+            var timedate = new Date();
+            var time=timedate.getFullYear()+"-"+timedate.getMonth()+"-"+timedate.getDate()+" "+timedate.getHours()+":"+timedate.getMinutes()+":"+timedate.getSeconds();
+            var text={"comment":window.tmop,"time":time};
+            $('#comment').prepend(Loging_xml(text));
             $("#ti").val("");
         }else {
           alert("额，发送失败   _(:qゝ∠)_  \n ",data);
