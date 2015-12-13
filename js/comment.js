@@ -49,7 +49,8 @@ function commit() {
         comment:function(argument){
           tmpd="";
           for(var i = 0; i < document.getElementById("ti").value.length; i++){
-            if(document.getElementById("ti").value.codePointAt(i)>65535){
+            if(document.getElementById("ti").value.codePointAt(i)>65535)
+            {
               tmpd+="&#"+document.getElementById("ti").value.codePointAt(i)+";";
               i++;
             }else{
@@ -197,8 +198,8 @@ $(document).ready(function() {
               //$(document).scrollTop() 获取垂直滚动的距离
               //$(document).scrollLeft() 这是获取水平滚动条的距离
               if ($(document).scrollTop()+5>= $(document).height() - $(window).height()) {
-                 if(Loging_xml(window.commentjson.responseJSON)=="木有了"){
-
+                 if(Loging_xml(window.commentjson.responseJSON)=="<wbi></wbi>"){
+                    $('wbi').html("<span class=\"glyphicon glyphicon-exclamation-sign\" style=\"color: rgb(255, 140, 60);\">加载完毕</span>");
                  }else{
                    jsonhook(++window.id);
                    $('#commit').append(Loging_xml(window.commentjson.responseJSON));
@@ -208,14 +209,14 @@ $(document).ready(function() {
       });
 function Loging_xml(argument) {
   if(argument.length-1){
-      $("#commit").fadeIn("3000");
+    console.log(argument.length-1);
       commithaed="<div class='comm'><div class='com'><comment><p>";
       commitzhon="</p></comment><time>";
       commitfooter="</time><br></div></div>";
       console.log(argument);
       var commenttmp="";
       tiao=0;
-      for(i=tiao;i<=tiao+9;i++){
+      for(i=tiao;i<tiao+argument.length-1;i++){
           commenttmp+=commithaed+argument[i].comment;
           commenttmp+=commitzhon
           commenttmp+=argument[i].time+commitfooter;
@@ -225,7 +226,7 @@ function Loging_xml(argument) {
       return xml;
     }
     else {
-      return "木有了";
+      return "<wbi></wbi>";
     }
 }
 function emoji(argument) {

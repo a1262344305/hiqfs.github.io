@@ -58,8 +58,8 @@ p h1{
 }
 .wrap {
 	position:fixed;
-	bottom: 10px;
-	left: 10px;
+	bottom: 100px;
+	right:25px;
 }
 .mindex {
 	max-width: 400px;
