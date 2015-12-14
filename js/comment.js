@@ -44,6 +44,7 @@ function commit() {
     if (document.getElementById("ti").value) {
     tijiaopostand = $.ajax({
       url:serverphp+"/write.php",
+      dataType:"json",
       type:"post",
       data:{
         comment:function(argument){
@@ -62,12 +63,10 @@ function commit() {
         }
       },
       success:function(data,textStatus) {
-        if(data=="OK"){
+        if(data.status=="OK"){
           alert("发送成功");
-            var timedate = new Date();
-            var time=timedate.getFullYear()+"-"+timedate.getMonth()+"-"+timedate.getDate()+" "+timedate.getHours()+":"+timedate.getMinutes()+":"+timedate.getSeconds();
-            var text={"comment":window.tmop,"time":time};
-            $('#comment').prepend(Loging_xml(text));
+            var text=[{"comment":window.tmop,"time":data.time},"duang"];
+            $('#commit').prepend(Loging_xml(text));
             $("#ti").val("");
         }else {
           alert("额，发送失败   _(:qゝ∠)_  \n ",data);
@@ -105,12 +104,10 @@ function ye(id,http) {
   imm();
 }
 function imm(argument) {
-$(document).ready(function(){
     $("im").html(function() {
       $(this).append("</im>")
       return "<img src='"+"http://7xljsf.com1.z0.glb.clouddn.com/"+$(this).attr("hash")+"' onclick='daa(\""+$(this).attr("hash")+"\")'></img>";
     });
-});
 }
 function json_comment(id) {
   if(id==1){
@@ -203,8 +200,18 @@ $(document).ready(function() {
                  if(Loging_xml(window.commentjson.responseJSON)=="<wbi></wbi>"){
                     $('wbi').html("<span class=\"glyphicon glyphicon-exclamation-sign\" style=\"color: rgb(255, 140, 60);\">加载完毕</span>");
                  }else{
+                   $('#commit').append("<tishi>\
+                   <div class=\"progress progress-striped active tiao\">\
+                    <div class=\"progress-bar progress-bar-success\" role=\"progressbar\"\
+                       aria-valuenow=\"60\" aria-valuemin=\"0\" aria-valuemax=\"100\"\
+                       style=\"width: 100%;\">\
+                       努力加载中...\
+                    </div>\
+                   </tishi>");
                    jsonhook(++window.id);
+                   $("#commit tishi").remove();
                    $('#commit').append(Loging_xml(window.commentjson.responseJSON));
+                   imm();
                  }
               }
           });
@@ -234,7 +241,11 @@ function Loging_xml(argument) {
 function emoji(argument) {
   text=argument.replace(/\&#[1-9]*;/g,function(emojicode) {
     var num=parseInt(emojicode.substring(2,emojicode.length-1)).toString(16);
-    return "<span class=\"emoji emoji"+num+"\"></span>";
+    if(num>"20e3"&&num<"1f6c5"){
+      return argument;
+    }else {
+      return "<img class=\"emojisize\" src=\"http://7u2f38.com5.z0.glb.clouddn.com/emoji"+num+".png\"></img>";
+    }
   });
   return text;
 }
