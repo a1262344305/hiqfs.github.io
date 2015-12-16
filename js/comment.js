@@ -22,6 +22,7 @@ $(document).ready(function() {
     $("#commit").fadeIn("slow");
     json_comment(1);
     window.id=1;
+    imm();
   }init();
 });
 function commit() {
