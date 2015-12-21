@@ -6,7 +6,7 @@ function jsonhook(id){
         async:false,
         dataType: "json",
         error:function (XMLHttpRequest, textStatus, errorThrown){
-          document.getElementById("commit").innerHTML="<div class='comment' ><p>/(ㄒoㄒ)/~~ 加载失败....</p></div>";
+          $('#commit').prepend(加载失败));
     },
   });
 /*  window.cron=$.ajax({
