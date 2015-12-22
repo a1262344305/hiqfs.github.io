@@ -93,15 +93,20 @@ with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElemen
 function bar(argument) {
   switch (argument) {
     case '1':
-    window.location.href="/";
-      break;
-    case '2':
       $('xmd').load('lyb.html');
       init();
+      $("#b1").addClass(function(){
+        $("li a").removeClass("active");
+        return "active";
+      });
       break;
-    case '3':
+    case '2':
       $('xmd').load('About.htm');
       init();
+      $("#b2").addClass(function(){
+        $("li a").removeClass("active");
+        return "active";
+      });
       break;
     default:
       window.location.href="/";

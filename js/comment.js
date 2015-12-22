@@ -1,7 +1,7 @@
 var serverphp = "http://server-php.coding.io";
 function jsonhook(id){
   window.commentjson=$.ajax({
-        url:serverphp+"/jsonread.php?line="+id,
+        url:serverphp+"/jsonread.php?line="+id+"\&num=25",
         cache:false,
         async:false,
         dataType: "json",
@@ -202,12 +202,7 @@ $(document).ready(function() {
                     $('wbi').html("<span class=\"glyphicon glyphicon-exclamation-sign\" style=\"color: rgb(255, 140, 60);\">加载完毕</span>");
                  }else{
                    $('#commit').append("<tishi>\
-                   <div class=\"progress progress-striped active tiao\">\
-                    <div class=\"progress-bar progress-bar-success\" role=\"progressbar\"\
-                       aria-valuenow=\"60\" aria-valuemin=\"0\" aria-valuemax=\"100\"\
-                       style=\"width: 100%;\">\
                        努力加载中...\
-                    </div>\
                    </tishi>");
                    jsonhook(++window.id);
                    $("#commit tishi").remove();
