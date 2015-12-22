@@ -25,9 +25,14 @@ if(ua.match(/Mobile/i)=={"mobile"}) {
 } else if(ua.match(/Mobile/i)=={""}){
 }else{
 }*/
-function ba(argument) {
+$("document").ready(function() {
+  $('#bar').load("/bar.html");
+  init();
+});
+function init(argument) {
     var index = Math.floor(Math.random()*(11-1+1)+1);
-     $("#root").css("background-image","url(http://7xljsf.com1.z0.glb.clouddn.com/bk"+index+".jpg)");
+    // $("#root").css("background-image","url(http://7xljsf.com1.z0.glb.clouddn.com/bk"+index+".jpg)");
+     hius();
 }
 function mobile() {
     if ((navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i))) {
@@ -35,14 +40,14 @@ function mobile() {
         return true;
     }
     else {
-      ba();
+      init();
       return false
     }
-}
+}//mobile();
 function hitokoto(hi) {
   $('#hitokoto').empty();
   if(hi.source){
-    text=hi.hitokoto+"<br>来自："+hi.source;
+    text="<p>"+hi.hitokoto+"<br>来自："+hi.source+"</p>";
   }
   else {
     text=hi.hitokoto;
@@ -85,6 +90,23 @@ function baidufen(argument) {//百度分享
 with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src=
 'http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
 }baidufen();
+function bar(argument) {
+  switch (argument) {
+    case '1':
+    window.location.href="/";
+      break;
+    case '2':
+      $('xmd').load('lyb.html');
+      init();
+      break;
+    case '3':
+      $('xmd').load('About.htm');
+      init();
+      break;
+    default:
+      window.location.href="/";
+  }
+}
 //document.getElementById("footer").innerHTML="<div class="+"footer"+"><a href="+"http://hifs.tk"+">hifs.tk"+" "+"</a><a href="+"mailto:i@hifs.tk"+">联系我</a> <a href="+"http://hifs.tk/About.htm"+">关于我</a><p style='color: darkslategray; font-family: "+"clicker script"+","+"segoe script"+","+"Comic Sans MS"+"; font-size: 28px; margin-top: 1px; text-shadow: none;'>"+"life,love,linux"+"</p></div>";
 /* htmlobj=$.ajax({url:"http://server-php.coding.io/imgaddress.php",async:true});
 var address=htmlobj.responseText;

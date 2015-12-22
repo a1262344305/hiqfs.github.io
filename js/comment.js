@@ -6,7 +6,7 @@ function jsonhook(id){
         async:false,
         dataType: "json",
         error:function (XMLHttpRequest, textStatus, errorThrown){
-          $('#commit').prepend(加载失败));
+          $('#commit').prepend("加载失败");
     },
   });
 /*  window.cron=$.ajax({
