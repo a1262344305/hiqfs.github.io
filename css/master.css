@@ -6,60 +6,39 @@
 	background-image: url(http://johnzhang.cn/bing.php);*/
 	background:no-repeat fixed bottom right;
 	background-color: rgba(249,249,249,1);
-    min-width: 500px;
     font-family:Source Han Sans CN,微软雅黑,Helvetica,STHeiti,Droid Sans Fallback;
 		right: 0;
     bottom: 0;
 }
-a {
-	transition: color 1s;
-}
-#hcon a:hover{
-	text-align: center;
-	color:royalblue;
+#root a:hover {
+	text-decoration:none;
 }
 .footer p{
 	color: darkslategray;
 	font-family:clicker script,segoe script,Comic Sans MS;
 	font-size: 28px;
 	margin-top: 0px;
- 	text-shadow: none;
+ 	text-shadow:none;
 	text-align: center;
 }
 .base {
 max-width:700px;
 }
-#hcon{
-	color:#FFF;
-	text-shadow:1px 1px 10px #000;
-	text-align: center;
-}
 .center{
 	text-align:center;
 	margin:0px auto;
 }
-#hcon a{
-	text-decoration:none;
-	color:#FFF;
-	text-shadow:1px 1px 10px #000;
-	transition: color 1s;
-}
 .base{
 	width:60%;
 }
-p
-{
-	color:#FFF;
-	text-shadow:1px 1px 10px #000;
-}
-p h1{
-	color:#FFF;
-	text-shadow:1px 1px 10px #000;
+#hcon{
+	text-align: center;
+	margin-top: 200px;
 }
 .wrap {
 	position:fixed;
-	bottom: 10px;
-	left: 10px;
+	bottom: 100px;
+	right:25px;
 }
 .mindex {
 	max-width: 400px;
@@ -73,5 +52,4 @@ p h1{
 	width: 60%;
 	margin-left: auto;
   margin-right: auto;
-
 }

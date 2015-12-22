@@ -7,12 +7,9 @@
   background-position:center;
 }*/
 
-#hcon{
-  position:absolute;
-  top:50%;
-  left:50%;
-  margin-top:-250px;
-  margin-left:-250px;
+#hcond{
+  text-align: center;
+  	margin-top: 200px;
    /*此时宽和高都要固定*/
-   width:500px;
+
 }

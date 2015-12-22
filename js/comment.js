@@ -1,12 +1,12 @@
 var serverphp = "http://server-php.coding.io";
-function jsonhook(){
+function jsonhook(id){
   window.commentjson=$.ajax({
-        url:serverphp+"/jsonread.php",
+        url:serverphp+"/jsonread.php?line="+id+"\&num=25",
         cache:false,
         async:false,
         dataType: "json",
         error:function (XMLHttpRequest, textStatus, errorThrown){
-          document.getElementById("commit").innerHTML="<div class='comment' ><p>/(ㄒoㄒ)/~~ 加载失败....</p></div>";
+          $('#commit').prepend("加载失败");
     },
   });
 /*  window.cron=$.ajax({
@@ -18,9 +18,11 @@ function jsonhook(){
 }
 $(document).ready(function() {
   function init(argument) {
-    jsonhook();
+    jsonhook(1);
+    $("#commit").fadeIn("slow");
     json_comment(1);
     window.id=1;
+    imm();
   }init();
 });
 function commit() {
@@ -43,27 +45,30 @@ function commit() {
     if (document.getElementById("ti").value) {
     tijiaopostand = $.ajax({
       url:serverphp+"/write.php",
+      dataType:"json",
       type:"post",
       data:{
         comment:function(argument){
           tmpd="";
           for(var i = 0; i < document.getElementById("ti").value.length; i++){
-            if(document.getElementById("ti").value.codePointAt(i)>65535){
+            if(document.getElementById("ti").value.codePointAt(i)>65535)
+            {
               tmpd+="&#"+document.getElementById("ti").value.codePointAt(i)+";";
               i++;
             }else{
               tmpd+=String.fromCharCode(document.getElementById("ti").value.codePointAt(i));
             }
           }//哈哈，可以支持emoji了😆
+          window.tmop=tmpd;
           return tmpd;
         }
       },
       success:function(data,textStatus) {
-        if(data=="OK"){
+        if(data.status=="OK"){
           alert("发送成功");
-          $("#ti").val("");
-          jsonhook();
-          json_comment(window.id);
+            var text=[{"comment":window.tmop,"time":data.time},"duang"];
+            $('#commit').prepend(Loging_xml(text));
+            $("#ti").val("");
         }else {
           alert("额，发送失败   _(:qゝ∠)_  \n ",data);
           console.log(data);
@@ -100,16 +105,18 @@ function ye(id,http) {
   imm();
 }
 function imm(argument) {
-$(document).ready(function(){
     $("im").html(function() {
       $(this).append("</im>")
       return "<img src='"+"http://7xljsf.com1.z0.glb.clouddn.com/"+$(this).attr("hash")+"' onclick='daa(\""+$(this).attr("hash")+"\")'></img>";
     });
-});
 }
 function json_comment(id) {
+  if(id==1){
   $('#commit').empty()
-  $('#commit').html(json_commentxml(commentjson.responseJSON,id));
+}else {
+}
+    $('#commit').html(Loging_xml(window.commentjson.responseJSON));
+  //$('#commit').html(json_commentxml(commentjson.responseJSON,id));
   window.id=id;
 }
 function json_commentxml(argument,mnum) {
@@ -168,11 +175,7 @@ function json_commentxml(argument,mnum) {
 }
 function daa(argument) {
   if($("[src$='"+argument+"']").css("width")<="100px"){
-<<<<<<< HEAD
-    $("[src$='"+argument+"']").css("width","auto");
-=======
     $("[src$='"+argument+"']").css("width","100%");
->>>>>>> b61d24dc8ee49f147e386ab73d23776f4e639b6c
     $("[src$='"+argument+"']").css("height","auto");
   }
   else {
@@ -190,15 +193,57 @@ function cornd(){
   if(window.cron<cron){
   }//这里的1000表示1秒有1000毫秒,1分钟有60秒,5表示总共5分钟
 }
-function AsciiToUnicode() {
-    if (document.getElementById('content').value == '') {
-	alert('文本框中没有代码！');
-	return;
-	}
-    document.getElementById('result').value = '';
-	for (var i = 0; i < document.getElementById('content').value.length; i++)
-	    result.value += '&#' + document.getElementById('content').value.charCodeAt(i) + ';';
-	document.getElementById('content').focus();
+$(document).ready(function() {
+          $(window).scroll(function() {
+              //$(document).scrollTop() 获取垂直滚动的距离
+              //$(document).scrollLeft() 这是获取水平滚动条的距离
+              if ($(document).scrollTop()+5>= $(document).height() - $(window).height()) {
+                 if(Loging_xml(window.commentjson.responseJSON)=="<wbi></wbi>"){
+                    $('wbi').html("<span class=\"glyphicon glyphicon-exclamation-sign\" style=\"color: rgb(255, 140, 60);\">加载完毕</span>");
+                 }else{
+                   $('#commit').append("<tishi>\
+                       努力加载中...\
+                   </tishi>");
+                   jsonhook(++window.id);
+                   $("#commit tishi").remove();
+                   $('#commit').append(Loging_xml(window.commentjson.responseJSON));
+                   imm();
+                 }
+              }
+          });
+      });
+function Loging_xml(argument) {
+  if(argument.length-1){
+    console.log(argument.length-1);
+      commithaed="<div class='comm'><div class='com'><comment><p>";
+      commitzhon="</p></comment><time>";
+      commitfooter="</time><br></div></div>";
+      console.log(argument);
+      var commenttmp="";
+      tiao=0;
+      for(i=tiao;i<tiao+argument.length-1;i++){
+          commenttmp+=commithaed+argument[i].comment;
+          commenttmp+=commitzhon
+          commenttmp+=argument[i].time+commitfooter;
+      }
+      xml=commenttmp.replace(/\n/g,"<br>");
+      xml=emoji(xml);
+      return xml;
+    }
+    else {
+      return "<wbi></wbi>";
+    }
+}
+function emoji(argument) {
+  text=argument.replace(/\&#[1-9]*;/g,function(emojicode) {
+    var num=parseInt(emojicode.substring(2,emojicode.length-1)).toString(16);
+    if(num>"20e3"&&num<"1f6c5"){
+      return argument;
+    }else {
+      return "<img class=\"emojisize\" src=\"http://7u2f38.com5.z0.glb.clouddn.com/emoji"+num+".png\"></img>";
+    }
+  });
+  return text;
 }
 /*
 $("#comment").ajaxSubmit({
