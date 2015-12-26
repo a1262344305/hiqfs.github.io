@@ -1,4 +1,5 @@
 @charset "UTF-8";
+
 /*body {
   background-image: url(http://7xljsf.com1.z0.glb.clouddn.com/bing.php);
   background-size:cover;
@@ -7,9 +8,8 @@
   background-position:center;
 }*/
 
-#hcond{
-  text-align: center;
-  	margin-top: 200px;
-   /*此时宽和高都要固定*/
-
+#hcond {
+    text-align: center;
+    margin-top: 200px;
+    /*此时宽和高都要固定*/
 }
