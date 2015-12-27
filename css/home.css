@@ -11,5 +11,6 @@
 #hcond {
     text-align: center;
     margin-top: 200px;
+    max-width: 95%;
     /*此时宽和高都要固定*/
 }

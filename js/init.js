@@ -9,14 +9,14 @@
 */
 //多说
 /*var duoshuoQuery = {short_name:"hifs"};
-	(function() {
-		var ds = document.createElement('script');
-		ds.type = 'text/javascript';ds.async = true;
-		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-		ds.charset = 'UTF-8';
-		(document.getElementsByTagName('head')[0]
-		 || document.getElementsByTagName('body')[0]).appendChild(ds);
-	})();*/
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0]
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();*/
 //end
 /*
 var ua = navigator.userAgent.toLowerCase();
@@ -26,91 +26,95 @@ if(ua.match(/Mobile/i)=={"mobile"}) {
 }else{
 }*/
 $("document").ready(function() {
-  $('#bar').load("/bar.html");
-  init();
+    $('#bar').load("/bar.html");
+    init();
 });
+
 function init(argument) {
-    var index = Math.floor(Math.random()*(11-1+1)+1);
+    var index = Math.floor(Math.random() * (11 - 1 + 1) + 1);
     // $("#root").css("background-image","url(http://7xljsf.com1.z0.glb.clouddn.com/bk"+index+".jpg)");
-     hius();
+    hius();
 }
+
 function mobile() {
     if ((navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i))) {
-        window.location.href='mobile';
+        window.location.href = 'mobile';
         return true;
+    } else {
+        init();
+        return false
     }
-    else {
-      init();
-      return false
-    }
-}//mobile();
+} //mobile();
 function hitokoto(hi) {
-  $('#hitokoto').empty();
-  if(hi.source){
-    text="<p>"+hi.hitokoto+"<br>来自："+hi.source+"</p>";
-  }
-  else {
-    text=hi.hitokoto;
-  }
-  $('#hitokoto').html(text);
+    $('#hitokoto').empty();
+    if (hi.source) {
+        text = "<p>" + hi.hitokoto + "<br>来自：" + hi.source + "</p>";
+    } else {
+        text = hi.hitokoto;
+    }
+    $('#hitokoto').html(text);
 }
+
 function delete_us() {
-  var us=document.getElementById('root');
-  var usid=document.getElementById('us')
-  us.removeChild(usid);
+    var us = document.getElementById('root');
+    var usid = document.getElementById('us')
+    us.removeChild(usid);
 }
+
 function hius() {
-  setTimeout(function(){
-    var hjs=document.createElement('script');
-    hjs.setAttribute('id','us');
-    hjs.setAttribute('async','async');
-    hjs.setAttribute('src','http://api.hitokoto.us/rand?encode=jsc');
-    document.body.appendChild(hjs);
-  },100);
+    setTimeout(function() {
+        var hjs = document.createElement('script');
+        hjs.setAttribute('id', 'us');
+        hjs.setAttribute('async', 'async');
+        hjs.setAttribute('src', 'http://api.hitokoto.us/rand?encode=jsc');
+        document.body.appendChild(hjs);
+    }, 100);
 }
-function baidufen(argument) {//百度分享
-  window._bd_share_config={
-    "common":{
-      "bdSnsKey":{},
-      "bdText":"",
-      "bdMini":"2",
-      "bdMiniList":false,
-      "bdPic":"",
-      "bdStyle":"0",
-      "bdSize":"16"
-    },
-    "slide":
-    {
-    "type":"slide",
-    "bdImg":"0",
-    "bdPos":"right",
-    "bdTop":"190.5"
-  }
-};
-with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src=
-'http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
-}baidufen();
+
+function baidufen(argument) { //百度分享
+    window._bd_share_config = {
+        "common": {
+            "bdSnsKey": {},
+            "bdText": "",
+            "bdMini": "2",
+            "bdMiniList": false,
+            "bdPic": "",
+            "bdStyle": "0",
+            "bdSize": "16"
+        },
+        "slide": {
+            "type": "slide",
+            "bdImg": "0",
+            "bdPos": "right",
+            "bdTop": "190.5"
+        }
+    };
+    with(document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src =
+        'http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion=' + ~(-new Date() / 36e5)];
+}
+baidufen();
+
 function bar(argument) {
-  switch (argument) {
-    case '1':
-      $('xmd').load('lyb.html');
-      init();
-      $("#b1").addClass(function(){
-        $("li a").removeClass("active");
-        return "active";
-      });
-      break;
-    case '2':
-      $('xmd').load('About.htm');
-      init();
-      $("#b2").addClass(function(){
-        $("li a").removeClass("active");
-        return "active";
-      });
-      break;
-    default:
-      window.location.href="/";
-  }
+    switch (argument) {
+        case '1':
+            $('xmd').load('lyb.html');
+            init();
+            $("#b1").addClass(function() {
+                $("li a").removeClass("active");
+                return "active";
+            });
+            break;
+        case '2':
+            $('xmd').load('About.htm');
+            init();
+            $("#b2").addClass(function() {
+                $("li a").removeClass("active");
+                return "active";
+            });
+            break;
+        default:
+            window.location.href = "/";
+    }
 }
 //document.getElementById("footer").innerHTML="<div class="+"footer"+"><a href="+"http://hifs.tk"+">hifs.tk"+" "+"</a><a href="+"mailto:i@hifs.tk"+">联系我</a> <a href="+"http://hifs.tk/About.htm"+">关于我</a><p style='color: darkslategray; font-family: "+"clicker script"+","+"segoe script"+","+"Comic Sans MS"+"; font-size: 28px; margin-top: 1px; text-shadow: none;'>"+"life,love,linux"+"</p></div>";
 /* htmlobj=$.ajax({url:"http://server-php.coding.io/imgaddress.php",async:true});
