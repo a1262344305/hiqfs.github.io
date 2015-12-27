@@ -103,6 +103,7 @@ function bar(argument) {
                 $("li a").removeClass("active");
                 return "active";
             });
+            delete_us();
             break;
         case '2':
             $('xmd').load('About.htm');
@@ -111,6 +112,7 @@ function bar(argument) {
                 $("li a").removeClass("active");
                 return "active";
             });
+            delete_us();
             break;
         default:
             window.location.href = "/";

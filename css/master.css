@@ -19,7 +19,6 @@
     max-width: 95%;
     /*此时宽和高都要固定*/
 }
-
 #root a:hover {
     text-decoration: none;
 }
@@ -79,9 +78,8 @@ comment{
 p a{
   text-decoration:none;
 }
-.mobile{
-  background-size: contain;
-  background-attachment:fixed;
+//xmd{
+  text-align: center;
 }
 time{
   font-size: 50%;
@@ -107,13 +105,11 @@ comment img{
 text{
   text-align: center;
 }
-#hitokoto{
-  color:#00a3cf;
-}
 #ti{
       text-shadow:1px 1px 5px #000;
       resize: none;
       overflow:visible;
+      height: 100px;
 }
 #jiao{
   float:right;
@@ -148,11 +144,14 @@ im img{
   z-index: 99;
 }
 .comment{
-  width:800px;
+  width:720px;
   margin-left: auto;
   margin-right: auto;
   max-width:95%;
 }
 comment code{
   display: inline-block;
+}
+span a{
+  color: #FFF;
 }
