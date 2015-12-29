@@ -26,13 +26,12 @@ if(ua.match(/Mobile/i)=={"mobile"}) {
 }else{
 }*/
 $("document").ready(function() {
-    $('#bar').load("/bar.html");
+    //$('#bar').load("/bar.html");
     init();
 });
-
 function init(argument) {
-    var index = Math.floor(Math.random() * (11 - 1 + 1) + 1);
-    // $("#root").css("background-image","url(http://7xljsf.com1.z0.glb.clouddn.com/bk"+index+".jpg)");
+    //var index = Math.floor(Math.random() * (11 - 1 + 1) + 1);
+    //$("#ti").css("background-image","url(http://7xljsf.com1.z0.glb.clouddn.com/bk"+index+".jpg)");
     hius();
 }
 
@@ -103,6 +102,7 @@ function bar(argument) {
                 $("li a").removeClass("active");
                 return "active";
             });
+            $("title").html("喵窝留言板⊙ω⊙"); 
             delete_us();
             break;
         case '2':
@@ -112,6 +112,7 @@ function bar(argument) {
                 $("li a").removeClass("active");
                 return "active";
             });
+            $("title").html("关于喵窝"); 
             delete_us();
             break;
         default:

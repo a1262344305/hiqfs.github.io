@@ -26,8 +26,13 @@ $(document).ready(function() {
         imm();
     }
     init();
+    ti();
 });
-
+function ti(){
+    var index = Math.floor(Math.random() * (11 - 1 + 1) + 1);
+    $("#ti").css("background-image","url(http://7xljsf.com1.z0.glb.clouddn.com/bk"+index+".jpg)");
+    // body...
+}
 function commit() {
     $(document).ready(function() {
         comment = $.ajax({

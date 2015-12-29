@@ -6,7 +6,7 @@
     /*background-image: url(http://77flfx.com1.z0.glb.clouddn.com/100001654389814.jpg);
 	background-image: url(http://qqfs.qiniudn.com/background.png);
 	background-image: url(http://johnzhang.cn/bing.php);*/
-    //background: no-repeat fixed bottom right;
+    background: fixed center top;
     background-color: rgba(249, 249, 249, 1);
     font-family: Source Han Sans CN, 微软雅黑, Helvetica, STHeiti, Droid Sans Fallback;
     right: 0;
@@ -16,7 +16,8 @@
 #hcond {
     text-align: center;
     margin-top: 200px;
-    max-width: 95%;
+    max-width: 94%;
+    margin-left: 3%;
     /*此时宽和高都要固定*/
 }
 #root a:hover {
@@ -110,6 +111,8 @@ text{
       resize: none;
       overflow:visible;
       height: 100px;
+      background: #FFF no-repeat right bottom;
+      background-size: auto 70%;
 }
 #jiao{
   float:right;
@@ -126,8 +129,11 @@ ys{
   text-shadow:1px 1px 2px #000;
 }
 #hitokoto{
-  text-shadow:1px 1px 2px #000;
+  //text-shadow:1px 1px 1px #000;
   text-decoration: none;
+}
+#hitokoto p{
+  margin-bottom: 0px;
 }
 im img{
   width: 100px;
