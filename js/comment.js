@@ -220,15 +220,13 @@ $(document).ready(function() {
         //$(document).scrollLeft() 这是获取水平滚动条的距离
         if ($(document).scrollTop() + 5 >= $(document).height() - $(window).height()) {
             if (Loging_xml(window.commentjson.responseJSON) == "<wbi></wbi>") {
+                $("loading").remove();
                 $('wbi').html("<span class=\"glyphicon glyphicon-exclamation-sign\" style=\"color: rgb(255, 140, 60);\">加载完毕</span>");
             } else {
-                $('#commit').append("<tishi>\
-                       努力加载中...\
-                   </tishi>");
                 jsonhook(++window.id);
-                $("#commit tishi").remove();
                 $('#commit').append(Loging_xml(window.commentjson.responseJSON));
                 imm();
+                $("#commit").fadeIn();
             }
         }
     });
@@ -249,7 +247,8 @@ function Loging_xml(argument) {
             commenttmp += argument[i].time + commitfooter;
         }
         xml = commenttmp.replace(/\n/g, "<br>");
-        xml = emoji(xml);
+        $("loading").remove(); 
+        xml = emoji(xml)+"<loading>Loading....</loading>";
         return xml;
     } else {
         return "<wbi></wbi>";

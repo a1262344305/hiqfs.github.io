@@ -33,17 +33,18 @@ function init(argument) {
     //var index = Math.floor(Math.random() * (11 - 1 + 1) + 1);
     //$("#ti").css("background-image","url(http://7xljsf.com1.z0.glb.clouddn.com/bk"+index+".jpg)");
     hius();
+    mobile();
 }
 
 function mobile() {
     if ((navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i))) {
-        window.location.href = 'mobile';
+        $("#root").css("background-color","#FFF");
         return true;
     } else {
-        init();
-        return false
+        $("#root").css("background-image","url(http:\/\/qqfs.qiniudn.com/background.png)");
+        return false;
     }
-} //mobile();
+}mobile();
 function hitokoto(hi) {
     $('#hitokoto').empty();
     if (hi.source) {
