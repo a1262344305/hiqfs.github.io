@@ -224,9 +224,9 @@ $(document).ready(function() {
                 $('wbi').html("<span class=\"glyphicon glyphicon-exclamation-sign\" style=\"color: rgb(255, 140, 60);\">加载完毕</span>");
             } else {
                 jsonhook(++window.id);
-                $('#commit').append(Loging_xml(window.commentjson.responseJSON));
+                $('#commit').append(Loging_xml(window.commentjson.responseJSON)+"<loading>Loading....</loading>");
+                $("loading").remove();
                 imm();
-                $("#commit").fadeIn();
             }
         }
     });
@@ -247,8 +247,7 @@ function Loging_xml(argument) {
             commenttmp += argument[i].time + commitfooter;
         }
         xml = commenttmp.replace(/\n/g, "<br>");
-        $("loading").remove(); 
-        xml = emoji(xml)+"<loading>Loading....</loading>";
+        xml = emoji(xml);
         return xml;
     } else {
         return "<wbi></wbi>";
