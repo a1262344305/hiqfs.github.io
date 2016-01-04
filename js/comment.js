@@ -25,6 +25,7 @@ $(document).ready(function() {
         window.id = 1;
         imm();
     }
+     websocketio()
     init();
     ti();
 });
@@ -78,7 +79,7 @@ function tijiaopost() {
                         "comment": window.tmop,
                         "time": data.time
                     }, "duang"];
-                    $('#commit').prepend(Loging_xml(text));
+                    $('#commit').prepend(Loading_xml(text));
                     $("#ti").val("");
                 } else {
                     alert("额，发送失败   _(:qゝ∠)_  \n ", data);
@@ -132,7 +133,7 @@ function json_comment(id) {
     if (id == 1) {
         $('#commit').empty()
     } else {}
-    $('#commit').html(Loging_xml(window.commentjson.responseJSON));
+    $('#commit').html(Loading_xml(window.commentjson.responseJSON));
     //$('#commit').html(json_commentxml(commentjson.responseJSON,id));
     window.id = id;
 }
@@ -219,12 +220,12 @@ $(document).ready(function() {
         //$(document).scrollTop() 获取垂直滚动的距离
         //$(document).scrollLeft() 这是获取水平滚动条的距离
         if ($(document).scrollTop() + 5 >= $(document).height() - $(window).height()) {
-            if (Loging_xml(window.commentjson.responseJSON) == "<wbi></wbi>") {
+            if (Loading_xml(window.commentjson.responseJSON) == "<wbi></wbi>") {
                 $("loading").remove();
                 $('wbi').html("<span class=\"glyphicon glyphicon-exclamation-sign\" style=\"color: rgb(255, 140, 60);\">加载完毕</span>");
             } else {
                 jsonhook(++window.id);
-                $('#commit').append(Loging_xml(window.commentjson.responseJSON)+"<loading>Loading....</loading>");
+                $('#commit').append(Loading_xml(window.commentjson.responseJSON)+"<loading>Loading....</loading>");
                 $("loading").remove();
                 imm();
             }
@@ -232,13 +233,13 @@ $(document).ready(function() {
     });
 });
 
-function Loging_xml(argument) {
+function Loading_xml(argument) {
     if (argument.length - 1) {
         console.log(argument.length - 1);
         commithaed = "<div class='comm'><div class='com'><comment><p>";
         commitzhon = "</p></comment><time>";
         commitfooter = "</time><br></div></div>";
-        console.log(argument);
+        console.log(argument[argument.length-1]);
         var commenttmp = "";
         tiao = 0;
         for (i = tiao; i < tiao + argument.length - 1; i++) {
@@ -248,6 +249,11 @@ function Loging_xml(argument) {
         }
         xml = commenttmp.replace(/\n/g, "<br>");
         xml = emoji(xml);
+        if(argument[argument.length-1]=="duang")
+        {}else{
+          console.log(argument[argument.length-1]);
+          $('loadtime').text(argument[argument.length-1]+"s");
+        }//这里要duang一下
         return xml;
     } else {
         return "<wbi></wbi>";
@@ -279,9 +285,17 @@ $("#comment").ajaxSubmit({
                 });
 */
 function websocketio(){
-     var socket = io.connect('http://jabin-nodejs.coding.io/');
-     socket.on('news', function (data) {
-     console.log(data);
-     socket.emit('my other event', { my: 'data' });
-   });
+  iosocket = io.connect("http://jabin-nodejs.coding.io/");
+  iosocket.on('connect', function () {
+    $('status').text('已连接');
+    $('status').css("background-color","#0275d8");
+    iosocket.on('message', function(message) {
+      var text=JSON.parse(message);
+      $('#commit').prepend(Loading_xml(text));
+    });
+    iosocket.on('disconnect', function() {
+        $('status').text('已断开');
+        $('status').css("background-color","#d9534f");
+    });
+});
 }

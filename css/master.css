@@ -161,3 +161,7 @@ comment code{
 span a{
   color: #FFF;
 }
+.status{
+  font-size:50%;
+  display: none;
+}
