@@ -33,7 +33,7 @@ function init(argument) {
     //var index = Math.floor(Math.random() * (11 - 1 + 1) + 1);
     //$("#ti").css("background-image","url(http://7xljsf.com1.z0.glb.clouddn.com/bk"+index+".jpg)");
     hius();
-    mobile();
+    //mobile();
 }
 
 function mobile() {
@@ -44,7 +44,7 @@ function mobile() {
         $("#root").css("background-image","url(http:\/\/qqfs.qiniudn.com/background.png)");
         return false;
     }
-}mobile();
+}//mobile();
 function hitokoto(hi) {
     $('#hitokoto').empty();
     if (hi.source) {
@@ -103,7 +103,7 @@ function bar(argument) {
                 $("li a").removeClass("active");
                 return "active";
             });
-            $("title").html("喵窝留言板⊙ω⊙"); 
+            $("title").html("喵窝留言板⊙ω⊙");
             delete_us();
             break;
         case '2':
@@ -113,7 +113,7 @@ function bar(argument) {
                 $("li a").removeClass("active");
                 return "active";
             });
-            $("title").html("关于喵窝"); 
+            $("title").html("关于喵窝");
             delete_us();
             break;
         default:

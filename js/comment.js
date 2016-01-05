@@ -80,6 +80,7 @@ function tijiaopost() {
                         "time": data.time
                     }, "duang"];
                     $('#commit').prepend(Loading_xml(text));
+                    iosocket.send(JSON.stringify(text));
                     $("#ti").val("");
                 } else {
                     alert("额，发送失败   _(:qゝ∠)_  \n ", data);
@@ -298,4 +299,20 @@ function websocketio(){
         $('status').css("background-color","#d9534f");
     });
 });
+}
+function CommentNum(argument) {
+  ++id
+  Num=25;
+  // body...
+}
+function jsonread(id,num) {
+    window.commentjson = $.ajax({
+        url: serverphp + "/jsonread.php?line=" + id + "\&num=25",
+        cache: false,
+        async: false,
+        dataType: "json",
+        error: function(XMLHttpRequest, textStatus, errorThrown) {
+          alert("加载失败.");
+        },
+    });
 }
