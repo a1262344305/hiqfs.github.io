@@ -1,28 +1,10 @@
 var serverphp = "http://server-php.coding.io";
-
-function jsonhook(id) {
-    window.commentjson = $.ajax({
-        url: serverphp + "/jsonread.php?line=" + id + "\&num=25",
-        cache: false,
-        async: false,
-        dataType: "json",
-        error: function(XMLHttpRequest, textStatus, errorThrown) {
-            $('#commit').prepend("加载失败");
-        },
-    });
-    /*  window.cron=$.ajax({
-            url:serverphp+"/cron.php",
-            cache:false,
-            async:false,
-            dataType: "json"
-      }).responseJSON;*/
-}
 $(document).ready(function() {
     function init(argument) {
-        jsonhook(1);
-        $("#commit").fadeIn("slow");
+        commitNum=0;
+        CommentNum(0);
         json_comment(1);
-        window.id = 1;
+        window.id = 0;
         imm();
     }
      websocketio()
@@ -82,6 +64,7 @@ function tijiaopost() {
                     $('#commit').prepend(Loading_xml(text));
                     iosocket.send(JSON.stringify(text));
                     $("#ti").val("");
+                    ++commitNum;
                 } else {
                     alert("额，发送失败   _(:qゝ∠)_  \n ", data);
                     console.log(data);
@@ -225,7 +208,7 @@ $(document).ready(function() {
                 $("loading").remove();
                 $('wbi').html("<span class=\"glyphicon glyphicon-exclamation-sign\" style=\"color: rgb(255, 140, 60);\">加载完毕</span>");
             } else {
-                jsonhook(++window.id);
+                CommentNum(++window.id);
                 $('#commit').append(Loading_xml(window.commentjson.responseJSON)+"<loading>Loading....</loading>");
                 $("loading").remove();
                 imm();
@@ -233,14 +216,12 @@ $(document).ready(function() {
         }
     });
 });
-
+window.nummab=1
 function Loading_xml(argument) {
     if (argument.length - 1) {
-        console.log(argument.length - 1);
         commithaed = "<div class='comm'><div class='com'><comment><p>";
         commitzhon = "</p></comment><time>";
         commitfooter = "</time><br></div></div>";
-        console.log(argument[argument.length-1]);
         var commenttmp = "";
         tiao = 0;
         for (i = tiao; i < tiao + argument.length - 1; i++) {
@@ -250,6 +231,8 @@ function Loading_xml(argument) {
         }
         xml = commenttmp.replace(/\n/g, "<br>");
         xml = emoji(xml);
+        ++window.nummab;
+        console.log(window.nummab);
         if(argument[argument.length-1]=="duang")
         {}else{
           console.log(argument[argument.length-1]);
@@ -300,19 +283,18 @@ function websocketio(){
     });
 });
 }
-function CommentNum(argument) {
-  ++id
+function CommentNum(id) {
   Num=25;
-  // body...
-}
-function jsonread(id,num) {
-    window.commentjson = $.ajax({
-        url: serverphp + "/jsonread.php?line=" + id + "\&num=25",
-        cache: false,
-        async: false,
-        dataType: "json",
-        error: function(XMLHttpRequest, textStatus, errorThrown) {
-          alert("加载失败.");
-        },
-    });
+  start=id*Num;
+  start=start+commitNum;
+  console.log(start+"||"+Num+"||"+commitNum);
+  window.commentjson = $.ajax({
+      url: serverphp + "/jsonread.php?start=" + start + "\&num="+Num,
+      cache: false,
+      async: false,
+      dataType: "json",
+      error: function(XMLHttpRequest, textStatus, errorThrown) {
+        alert("加载失败.");
+      },
+  });
 }
