@@ -1,21 +1,23 @@
-var serverphp = "http://server-php.coding.io";
+serverphp = "http://server-php.coding.io";
 $(document).ready(function() {
     function init(argument) {
-        commitNum=0;
-        CommentNum(0);
-        json_comment(1);
-        window.id = 0;
+        commitNum=0;//评论偏移数
+        CommentNum(0);//评论初始化
+        json_comment(1);//评论加载
+        window.id = 0;//
         imm();
+        var index = Math.floor(Math.random() * (11 - 1 + 1) + 1);//评论框随机背景
+        $("#ti").css("background-image","url(http://7xljsf.com1.z0.glb.clouddn.com/bk"+index+".jpg)");
+        footer();//底部加载脚本初始化
+        if(window.status){
+          $('status').text('已连接');
+          $('status').css("background-color","#0275d8");
+        }else {
+          websocketio();
+        }
     }
-     websocketio()
     init();
-    ti();
 });
-function ti(){
-    var index = Math.floor(Math.random() * (11 - 1 + 1) + 1);
-    $("#ti").css("background-image","url(http://7xljsf.com1.z0.glb.clouddn.com/bk"+index+".jpg)");
-    // body...
-}
 function commit() {
     $(document).ready(function() {
         comment = $.ajax({
@@ -199,24 +201,25 @@ function cornd() {
     }).responseJSON;
     if (window.cron < cron) {} //这里的1000表示1秒有1000毫秒,1分钟有60秒,5表示总共5分钟
 }
-$(document).ready(function() {
-    $(window).scroll(function() {
-        //$(document).scrollTop() 获取垂直滚动的距离
-        //$(document).scrollLeft() 这是获取水平滚动条的距离
-        if ($(document).scrollTop() + 5 >= $(document).height() - $(window).height()) {
-            if (Loading_xml(window.commentjson.responseJSON) == "<wbi></wbi>") {
-                $("loading").remove();
-                $('wbi').html("<span class=\"glyphicon glyphicon-exclamation-sign\" style=\"color: rgb(255, 140, 60);\">加载完毕</span>");
-            } else {
-                CommentNum(++window.id);
-                $('#commit').append(Loading_xml(window.commentjson.responseJSON)+"<loading>Loading....</loading>");
-                $("loading").remove();
-                imm();
-            }
-        }
-    });
-});
-window.nummab=1
+function footer(argument) {
+  $(document).ready(function() {
+      $(window).scroll(function() {
+          //$(document).scrollTop() 获取垂直滚动的距离
+          //$(document).scrollLeft() 这是获取水平滚动条的距离
+          if ($(document).scrollTop() + 5 >= $(document).height() - $(window).height()) {
+              if (Loading_xml(window.commentjson.responseJSON) == "<wbi></wbi>") {
+                  $("loading").remove();
+                  $('wbi').html("<span class=\"glyphicon glyphicon-exclamation-sign\" style=\"color: rgb(255, 140, 60);\">加载完毕</span>");
+              } else {
+                  CommentNum(++window.id);
+                  $('#commit').append(Loading_xml(window.commentjson.responseJSON)+"<loading>Loading....</loading>");
+                  $("loading").remove();
+                  imm();
+              }
+          }
+      });
+  });
+}
 function Loading_xml(argument) {
     if (argument.length - 1) {
         commithaed = "<div class='comm'><div class='com'><comment><p>";
@@ -231,11 +234,8 @@ function Loading_xml(argument) {
         }
         xml = commenttmp.replace(/\n/g, "<br>");
         xml = emoji(xml);
-        ++window.nummab;
-        console.log(window.nummab);
         if(argument[argument.length-1]=="duang")
         {}else{
-          console.log(argument[argument.length-1]);
           $('loadtime').text(argument[argument.length-1]+"s");
         }//这里要duang一下
         return xml;
@@ -255,39 +255,27 @@ function emoji(argument) {
     });
     return text;
 }
-/*
-$("#comment").ajaxSubmit({
-                    type: 'post',
-                    url: "http://127.0.0.1:8080/write.php" ,
-                    success: function(data){
-                        alert( "success");
-                        //$( "#wfAuditForm").resetForm();
-                    },
-                    error: function(XmlHttpRequest, textStatus, errorThrown){
-                        alert( "error");
-                    }
-                });
-*/
 function websocketio(){
-  iosocket = io.connect("http://jabin-nodejs.coding.io/");
-  iosocket.on('connect', function () {
-    $('status').text('已连接');
-    $('status').css("background-color","#0275d8");
-    iosocket.on('message', function(message) {
-      var text=JSON.parse(message);
-      $('#commit').prepend(Loading_xml(text));
-    });
-    iosocket.on('disconnect', function() {
-        $('status').text('已断开');
-        $('status').css("background-color","#d9534f");
-    });
+iosocket = io.connect("http://jabin-nodejs.coding.io/");
+iosocket.on('connect', function () {
+  $('status').text('已连接');
+  window.status=1;
+  $('status').css("background-color","#0275d8");
+  iosocket.on('message', function(message) {
+    var text=JSON.parse(message);
+    $('#commit').prepend(Loading_xml(text));
+  });
+  iosocket.on('disconnect', function() {
+      $('status').text('已断开');
+      $('status').css("background-color","#d9534f");
+  window.status=0;
+  });
 });
 }
 function CommentNum(id) {
   Num=25;
   start=id*Num;
   start=start+commitNum;
-  console.log(start+"||"+Num+"||"+commitNum);
   window.commentjson = $.ajax({
       url: serverphp + "/jsonread.php?start=" + start + "\&num="+Num,
       cache: false,
