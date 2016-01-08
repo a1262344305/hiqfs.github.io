@@ -1,14 +1,7 @@
 $("document").ready(function() {
     //$('#bar').load("/bar.html");
-    init();
-});
-function init(argument) {
-    //var index = Math.floor(Math.random() * (11 - 1 + 1) + 1);
-    //$("#ti").css("background-image","url(http://7xljsf.com1.z0.glb.clouddn.com/bk"+index+".jpg)");
     hius();
-    //mobile();
-}
-
+});
 function mobile() {
     if ((navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i))) {
         $("#root").css("background-color","#FFF");
@@ -71,7 +64,7 @@ function bar(argument) {
     switch (argument) {
         case '1':
             $('xmd').load('lyb.html');
-            init();
+            hius();
             $("#b1").addClass(function() {
                 $("li a").removeClass("active");
                 return "active";
@@ -81,7 +74,7 @@ function bar(argument) {
             break;
         case '2':
             $('xmd').load('About.htm');
-            init();
+            hius();
             $("#b2").addClass(function() {
                 $("li a").removeClass("active");
                 return "active";
