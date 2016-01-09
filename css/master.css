@@ -72,7 +72,7 @@
     margin-left: auto;
     margin-right: auto;
 }
-comment{
+#commit p{
   font-size: 100%;
   text-shadow:1px 1px 3px #000;
 }
@@ -94,10 +94,6 @@ center p{
 }
 #commit{
   clear:both;
-}
-comment img{
-  height:24px;
-  width:24px;
 }
 .hitokoto a{
   text-decoration:none;
@@ -164,4 +160,6 @@ span a{
 .status{
   font-size:50%;
   display: none;
+}
+.comm{
 }
