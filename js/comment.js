@@ -38,7 +38,7 @@ function commit() {
 function tijiaopost() {
     if (document.getElementById("ti").value) {
         tijiaopostand = $.ajax({
-            url: serverphp + "/write.php",
+            url: serverphp + "/write.phpd",
             dataType: "json",
             type: "post",
             data: {
@@ -198,11 +198,20 @@ function CommentNum(id) {
   });
 }
 // Jquery Code
+timetmp=(new Date).getTime()+3000;
+console.log(timetmp);
 $("#jiao").click(function(){
     $(this).attr("disabled", true); 
     $(this).css("background-color","#6F6F6F");
     $(this).text("发送中...");
-    tijiaopost();
+    if(timetmp >= (new Date).getTime()){
+      alert("发太快了哦");
+      console.log(timetmp);
+      console.log((new Date).getTime());
+    }else{
+      tijiaopost();
+      timetmp=(new Date).getTime()+3000;
+    }
     $(this).css("background-color","#00a3cf");
     $(this).text("发送");
     $(this).attr("disabled", false); 

@@ -3,22 +3,6 @@ function tokenand(argument) {
    $("#token").val(token.responseText);
   return token.responseText;
 }tokenand();
-/*
-function update(argument) {
-  update= $.ajax({
-     url: "http://upload.qiniu.com/",
-     type: "POST",
-     enctype: 'multipart/form-data',
-     data: {
-       token:tokenand(),
-       file: document.getElementById("qifile").files[0],
-     },
-     success: function () {
-       alert("Data Uploaded: ");
-     }
-  });
-}
-*/
 function UpladFile() {
     var fileObj = document.getElementById("qifile").files[0]; // 获取文件对象
     var FileController = "http://upload.qiniu.com/";                    // 接收上传文件的后台地址
@@ -31,7 +15,8 @@ function UpladFile() {
     xhr.onload = function () {
         alert("上传完成!");
         console.log(xhr.responseText);
-        console.log(eval("(" + xhr.responseText + ")"));
+        var tmp=eval("(" + xhr.responseText + ")");
+        $("update").append("服务器资源地址:http://7xljsf.com1.z0.glb.clouddn.com/"+tmp.hash+"<br>");
     };
     xhr.send(form);
 }

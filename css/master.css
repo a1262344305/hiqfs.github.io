@@ -163,3 +163,6 @@ span a{
 }
 .comm{
 }
+.comm code{
+  display: inline-block;
+}
