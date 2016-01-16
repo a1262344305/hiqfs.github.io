@@ -11,21 +11,6 @@ function UpladFile() {
     form.append("token", tokenand());                        // 可以增加表单数据
     form.append("file", fileObj);                           // 文件对象
     var xhr = new XMLHttpRequest();
-    xhr.upload.addEventListener("progress", function(evt){
-          if (a < fileNum && a != fileNum) {
-        //此处的evt就是文件上传的所有信息。                
-        //evt.lengthComputable,文件是否是空
-        if (evt.lengthComputable) {
-            //evt.loaded：文件上传的大小   evt.total：文件总的大小      
-            console.warn(evt.loaded);
-            var percentComplete = Math.round((evt.loaded) * 100 / evt.total);
-            //加载进度条，同时显示信息                    
-            document.getElementById("" + a + "").innerHTML = percentComplete.toString() + '%';
-            document.getElementById("num" + a + "").value = percentComplete / 100;
-            //如果上传的结果是100时才让加载下一个文件。如果不够100会继续上传原来的文档。                    
-        }
-    }
-    }, false);
     xhr.open("post", FileController, true);
     xhr.onload = function () {
         alert("上传完成!");
