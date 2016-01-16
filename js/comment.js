@@ -38,7 +38,7 @@ function commit() {
 function tijiaopost() {
     if (document.getElementById("ti").value) {
         tijiaopostand = $.ajax({
-            url: serverphp + "/write.phpd",
+            url: serverphp + "/write.php",
             dataType: "json",
             type: "post",
             data: {
