@@ -1,22 +1,22 @@
 serverphp = "http://server-php.coding.io";
 $(document).ready(function() {
-    function init(argument) {
+    function init(argument) {//脚本初始化函数
         commitNum=0;//评论偏移数
         CommentNum(0);//评论初始化
         json_comment(1);//评论加载
-        window.id = 0;//
-        imm();
+        window.id = 0;//页数初始化为零
+        imm();//处理图片和哈希资源
         var index = Math.floor(Math.random() * (11 - 1 + 1) + 1);//评论框随机背景
         $("#ti").css("background-image","url(http://7xljsf.com1.z0.glb.clouddn.com/bk"+index+".jpg)");
         footer();//底部加载脚本初始化
-        if(window.status){
+        if(window.status){//服务器自动状态提醒
           $('status').text('已连接');
           $('status').css("background-color","#0275d8");
         }else {
           websocketio();
         }
     }
-    init();
+    init();//脚本初始化
 });
 function commit() {
     $(document).ready(function() {
@@ -34,7 +34,6 @@ function commit() {
         imm();
     });
 }
-
 function tijiaopost() {
     if (document.getElementById("ti").value) {
         tijiaopostand = $.ajax({
@@ -92,6 +91,9 @@ function imm(argument) {
     $("im").html(function() {
         $(this).append("</im>");
         return "<img src='" + "http://7xljsf.com1.z0.glb.clouddn.com/" + $(this).attr("hash") + "' onclick='daa(\"" + $(this).attr("hash") + "\")'></img>";
+    });
+    $("[hash]").attr("src",function() {
+        return "http://7xljsf.com1.z0.glb.clouddn.com/" + $(this).attr("hash");
     });
 }
 
@@ -175,6 +177,7 @@ iosocket.on('connect', function () {
   iosocket.on('message', function(message) {
     var text=JSON.parse(message);
     $('#commit').prepend(Loading_xml(text));
+    imm();
   });
   iosocket.on('disconnect', function() {
       $('status').text('已断开');
