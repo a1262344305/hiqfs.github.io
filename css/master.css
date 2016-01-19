@@ -131,9 +131,8 @@ ys{
 #hitokoto p{
   margin-bottom: 0px;
 }
-im img{
+.img{
   width: 100px;
-  height: 100px;
 }
 .emojisize{
   width:20px;
@@ -165,4 +164,5 @@ span a{
 }
 .comm code{
   display: inline-block;
+  word-break:break-all;
 }

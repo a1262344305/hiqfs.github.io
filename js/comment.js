@@ -86,14 +86,23 @@ function tijiaopost() {
         alert("总得写些什么吧！");
     }
 }
-function imm(argument) {
+function imm(argument) {//一大堆jq code
     $(".comm").fadeIn(1500);
     $("im").html(function() {
         $(this).append("</im>");
-        return "<img src='" + "http://7xljsf.com1.z0.glb.clouddn.com/" + $(this).attr("hash") + "' onclick='daa(\"" + $(this).attr("hash") + "\")'></img>";
+        return "<img class=\"img\" src='" + "http://7xljsf.com1.z0.glb.clouddn.com/" + $(this).attr("hash") + "'></img>";
     });
     $("[hash]").attr("src",function() {
+        console.log(this);
+        $("img[hash]").addClass("img");
         return "http://7xljsf.com1.z0.glb.clouddn.com/" + $(this).attr("hash");
+    });
+    $(".img").click(function(){
+      if ($(this).css("width") <= "100px") {
+        $(this).css("width", "100%");
+    } else {
+        $(this).css("width", "100px");
+    }
     });
 }
 
@@ -104,15 +113,6 @@ function json_comment(id) {
     $('#commit').html(Loading_xml(window.commentjson.responseJSON));
     //$('#commit').html(json_commentxml(commentjson.responseJSON,id));
     window.id = id;
-}
-function daa(argument) {
-    if ($("[src$='" + argument + "']").css("width") <= "100px") {
-        $("[src$='" + argument + "']").css("width", "100%");
-        $("[src$='" + argument + "']").css("height", "auto");
-    } else {
-        $("[src$='" + argument + "']").css("width", "100px");
-        $("[src$='" + argument + "']").css("height", "100px");
-    }
 }
 function footer(argument) {
   $(document).ready(function() {
@@ -133,7 +133,7 @@ function footer(argument) {
       });
   });
 }
-function Loading_xml(argument) {
+function Loading_xml(argument) {//json生成评论返回dom
     if (argument.length - 1) {
         commithaed = "<div class='comm' style=\"display:none;\"><p>";
         commitzhon = "</p><time>";
@@ -157,7 +157,7 @@ function Loading_xml(argument) {
     }
 }
 
-function emoji(argument) {
+function emoji(argument) {//处理emoji表情
     text = argument.replace(/\&#[1-9]*;/g, function(emojicode) {
         var num = parseInt(emojicode.substring(2, emojicode.length - 1)).toString(16);
         if (num > "20e3" && num < "1f6c5") {
@@ -200,7 +200,9 @@ function CommentNum(id) {
       },
   });
 }
+//蛋疼的封装了一堆函数
 // Jquery Code
+//开始处理点击事件
 timetmp=(new Date).getTime()+3000;
 console.log(timetmp);
 $("#jiao").click(function(){
