@@ -1,23 +1,25 @@
 serverphp = "http://server-php.coding.io";
 $(document).ready(function() {
-    function init(argument) {//脚本初始化函数
-        commitNum=0;//评论偏移数
-        CommentNum(0);//评论初始化
-        json_comment(1);//评论加载
-        window.id = 0;//页数初始化为零
-        imm();//处理图片和哈希资源
-        var index = Math.floor(Math.random() * (11 - 1 + 1) + 1);//评论框随机背景
-        $("#ti").css("background-image","url(http://7xljsf.com1.z0.glb.clouddn.com/bk"+index+".jpg)");
-        footer();//底部加载脚本初始化
-        if(window.status){//服务器自动状态提醒
-          $('status').text('已连接');
-          $('status').css("background-color","#0275d8");
-        }else {
-          websocketio();
+    function init(argument) { //脚本初始化函数
+        commitNum = 0; //评论偏移数
+        CommentNum(0); //评论初始化
+        json_comment(1); //评论加载
+        window.id = 0; //页数初始化为零
+        //htmlinit(); //处理图片和哈希资源
+        var index = Math.floor(Math.random() * (11 - 1 + 1) + 1); //评论框随机背景
+        $("#ti").css("background-image", "url(http://7xljsf.com1.z0.glb.clouddn.com/bk" + index + ".jpg)");
+        footer(); //底部加载脚本初始化
+        if (window.status) { //服务器自动状态提醒
+            $('status').text('已连接');
+            $('status').css("background-color", "#0275d8");
+        } else {
+            websocketio();
         }
     }
-    init();//脚本初始化
+    init(); //脚本初始化
+    htmlinit();
 });
+
 function commit() {
     $(document).ready(function() {
         comment = $.ajax({
@@ -31,9 +33,10 @@ function commit() {
         var com = comment.responseText;
         var commit = com.replace(/\n/g, "<br>");
         document.getElementById("commit").innerHTML = commit;
-        imm();
+        htmlinit();
     });
 }
+
 function tijiaopost() {
     if (document.getElementById("ti").value) {
         tijiaopostand = $.ajax({
@@ -66,11 +69,12 @@ function tijiaopost() {
                     iosocket.send(JSON.stringify(text));
                     $("#ti").val("");
                     ++commitNum;
+                    htmlinit();
                 } else {
                     alert("额，发送失败   _(:qゝ∠)_  \n ", data);
                     console.log(data);
                 }
-                imm();
+                htmlinit();
             },
             error: function(XMLHttpRequest, textStatus, errorThrown) {
                 console.log(XMLHttpRequest);
@@ -86,23 +90,20 @@ function tijiaopost() {
         alert("总得写些什么吧！");
     }
 }
-function imm(argument) {//一大堆jq code
+
+function htmlinit() {
     $(".comm").fadeIn(1500);
-    $("im").html(function() {
-        $(this).append("</im>");
-        return "<img class=\"img\" src='" + "http://7xljsf.com1.z0.glb.clouddn.com/" + $(this).attr("hash") + "'></img>";
-    });
-    $("[hash]").attr("src",function() {
-        console.log(this);
+    $("[hash]").attr("src", function() {
         $("img[hash]").addClass("img");
         return "http://7xljsf.com1.z0.glb.clouddn.com/" + $(this).attr("hash");
     });
-    $(".img").click(function(){
-      if ($(this).css("width") <= "100px") {
-        $(this).css("width", "100%");
-    } else {
-        $(this).css("width", "100px");
-    }
+    $("[hash]").removeAttr("hash");
+    $(".img").click(function() {
+        if ($(this).css("width") <= "100px") {
+            $(this).css("width", "100%");
+        } else {
+            $(this).css("width", "100px");
+        }
     });
 }
 
@@ -115,25 +116,26 @@ function json_comment(id) {
     window.id = id;
 }
 function footer(argument) {
-  $(document).ready(function() {
-      $(window).scroll(function() {
-          //$(document).scrollTop() 获取垂直滚动的距离
-          //$(document).scrollLeft() 这是获取水平滚动条的距离
-          if ($(document).scrollTop() + 100 >= $(document).height() - $(window).height()) {
-              if (Loading_xml(window.commentjson.responseJSON) == "<wbi></wbi>") {
-                  $("loading").remove();
-                  $('wbi').html("<span class=\"glyphicon glyphicon-exclamation-sign\" style=\"color: rgb(255, 140, 60);\">加载完毕</span>");
-              } else {
-                  CommentNum(++window.id);
-                  $('#commit').append(Loading_xml(window.commentjson.responseJSON)+"<loading>Loading....</loading>");
-                  $("loading").remove();
-                  imm();
-              }
-          }
-      });
-  });
+    $(document).ready(function() {
+        $(window).scroll(function() {
+            //$(document).scrollTop() 获取垂直滚动的距离
+            //$(document).scrollLeft() 这是获取水平滚动条的距离
+            if ($(document).scrollTop() + 100 >= $(document).height() - $(window).height()) {
+                if (Loading_xml(window.commentjson.responseJSON) == "<wbi></wbi>") {
+                    $("loading").remove();
+                    $('wbi').html("<span class=\"glyphicon glyphicon-exclamation-sign\" style=\"color: rgb(255, 140, 60);\">加载完毕</span>");
+                } else {
+                    CommentNum(++window.id);
+                    $('#commit').append(Loading_xml(window.commentjson.responseJSON) + "<loading>Loading....</loading>");
+                    $("loading").remove();
+                    htmlinit();
+                }
+            }
+        });
+    });
 }
-function Loading_xml(argument) {//json生成评论返回dom
+
+function Loading_xml(argument) { //json生成评论返回dom
     if (argument.length - 1) {
         commithaed = "<div class='comm' style=\"display:none;\"><p>";
         commitzhon = "</p><time>";
@@ -147,17 +149,16 @@ function Loading_xml(argument) {//json生成评论返回dom
         }
         xml = commenttmp.replace(/\n/g, "<br>");
         xml = emoji(xml);
-        if(argument[argument.length-1]=="duang")
-        {}else{
-          $('loadtime').text(argument[argument.length-1]+"s");
-        }//这里要duang一下
+        if (argument[argument.length - 1] == "duang") {} else {
+            $('loadtime').text(argument[argument.length - 1] + "s");
+        } //这里要duang一下
         return xml;
     } else {
         return "<wbi></wbi>";
     }
 }
 
-function emoji(argument) {//处理emoji表情
+function emoji(argument) { //处理emoji表情
     text = argument.replace(/\&#[1-9]*;/g, function(emojicode) {
         var num = parseInt(emojicode.substring(2, emojicode.length - 1)).toString(16);
         if (num > "20e3" && num < "1f6c5") {
@@ -168,56 +169,62 @@ function emoji(argument) {//处理emoji表情
     });
     return text;
 }
-function websocketio(){
-iosocket = io.connect("http://jabin-nodejs.coding.io/");
-iosocket.on('connect', function () {
-  $('status').text('已连接');
-  window.status=1;
-  $('status').css("background-color","#0275d8");
-  iosocket.on('message', function(message) {
-    var text=JSON.parse(message);
-    $('#commit').prepend(Loading_xml(text));
-    imm();
-  });
-  iosocket.on('disconnect', function() {
-      $('status').text('已断开');
-      $('status').css("background-color","#d9534f");
-  window.status=0;
-  });
-});
+
+function websocketio() {
+    iosocket = io.connect("http://jabin-nodejs.coding.io/");
+    iosocket.on('connect', function() {
+        $('status').text('已连接');
+        window.status = 1;
+        $('status').css("background-color", "#0275d8");
+        iosocket.on('message', function(message) {
+            var text = JSON.parse(message);
+            $('#commit').prepend(Loading_xml(text));
+            htmlinit();
+        });
+        iosocket.on('disconnect', function() {
+            $('status').text('已断开');
+            $('status').css("background-color", "#d9534f");
+            window.status = 0;
+        });
+    });
 }
+
 function CommentNum(id) {
-  Num=25;
-  start=id*Num;
-  start=start+commitNum;
-  window.commentjson = $.ajax({
-      url: serverphp + "/jsonread.php?start=" + start + "\&num="+Num,
-      cache: false,
-      async: false,
-      dataType: "json",
-      error: function(XMLHttpRequest, textStatus, errorThrown) {
-        alert("加载失败.");
-      },
-  });
+    Num = 25;
+    start = id * Num;
+    start = start + commitNum;
+    window.commentjson = $.ajax({
+        url: serverphp + "/jsonread.php?start=" + start + "\&num=" + Num,
+        cache: false,
+        async: false,
+        dataType: "json",
+        error: function(XMLHttpRequest, textStatus, errorThrown) {
+            alert("加载失败.");
+        },
+    });
 }
 //蛋疼的封装了一堆函数
 // Jquery Code
 //开始处理点击事件
-timetmp=(new Date).getTime()+3000;
-console.log(timetmp);
-$("#jiao").click(function(){
-    $(this).attr("disabled", true); 
-    $(this).css("background-color","#6F6F6F");
+timetmp = (new Date).getTime() + 3000;
+$("#jiao").click(function() {
+    $(this).attr("disabled", true);
+    $(this).css("background-color", "#6F6F6F");
     $(this).text("发送中...");
-    if(timetmp >= (new Date).getTime()){
-      alert("发太快了哦");
-      console.log(timetmp);
-      console.log((new Date).getTime());
-    }else{
-      tijiaopost();
-      timetmp=(new Date).getTime()+3000;
+    if (timetmp >= (new Date).getTime()) {
+        alert("发太快了哦");
+    } else {
+        tijiaopost();
+        timetmp = (new Date).getTime() + 3000;
     }
-    $(this).css("background-color","#00a3cf");
+    $(this).css("background-color", "#00a3cf");
     $(this).text("发送");
-    $(this).attr("disabled", false); 
+    $(this).attr("disabled", false);
+});
+$(".img").click(function() {
+        if ($(this).css("width") <= "100px") {
+            $(this).css("width", "100%");
+        } else {
+            $(this).css("width", "100px");
+        }
 });
