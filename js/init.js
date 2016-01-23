@@ -2,15 +2,16 @@ $("document").ready(function() {
     //$('#bar').load("/bar.html");
     hius();
 });
+
 function mobile() {
     if ((navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i))) {
-        $("#root").css("background-color","#FFF");
+        $("#root").css("background-color", "#FFF");
         return true;
     } else {
-        $("#root").css("background-image","url(http:\/\/qqfs.qiniudn.com/background.png)");
+        $("#root").css("background-image", "url(http:\/\/qqfs.qiniudn.com/background.png)");
         return false;
     }
-}//mobile();
+} //mobile();
 function hitokoto(hi) {
     $('#hitokoto').empty();
     if (hi.source) {
@@ -63,14 +64,20 @@ baidufen();
 function bar(argument) {
     switch (argument) {
         case '1':
-            $('xmd').load('lyb.html');
-            hius();
-            $("#b1").addClass(function() {
-                $("li a").removeClass("active");
-                return "active";
+            $('xmd').load('lyb.html', function(response, status,xhr) {
+                if (status == "success") {
+                    hius();
+                    $("#b1").addClass(function() {
+                        $("li a").removeClass("active");
+                        return "active";
+                    });
+                    $("title").html("喵窝留言板⊙ω⊙");
+                    delete_us();
+                }else{
+                    alert("加载失败  _(:qゝ∠)_  \n错误代码:"+xhr.status);
+                    console.log(xhr);
+                }
             });
-            $("title").html("喵窝留言板⊙ω⊙");
-            delete_us();
             break;
         case '2':
             $('xmd').load('About.htm');

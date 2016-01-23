@@ -8,7 +8,7 @@ $(document).ready(function() {
         //htmlinit(); //处理图片和哈希资源
         var index = Math.floor(Math.random() * (11 - 1 + 1) + 1); //评论框随机背景
         $("#ti").css("background-image", "url(http://7xljsf.com1.z0.glb.clouddn.com/bk" + index + ".jpg)");
-        footer(); //底部加载脚本初始化
+        //footer(); //底部加载脚本初始化
         if (window.status) { //服务器自动状态提醒
             $('status').text('已连接');
             $('status').css("background-color", "#0275d8");
@@ -16,6 +16,21 @@ $(document).ready(function() {
             websocketio();
         }
     }
+    $(window).scroll(function() {
+        //$(document).scrollTop() 获取垂直滚动的距离
+        //$(document).scrollLeft() 这是获取水平滚动条的距离
+        if ($(document).scrollTop() + 100 >= $(document).height() - $(window).height()) {
+            if (Loading_xml(window.commentjson.responseJSON) == "<wbi></wbi>") {
+                $("loading").remove();
+                $('wbi').html("<span class=\"glyphicon glyphicon-exclamation-sign\" style=\"color: rgb(255, 140, 60);\">加载完毕</span>");
+            } else {
+                CommentNum(++window.id);
+                $('#commit').append(Loading_xml(window.commentjson.responseJSON) + "<loading>Loading....</loading>");
+                $("loading").remove();
+                htmlinit();
+            }
+        }
+    });
     init(); //脚本初始化
     htmlinit();
 });
@@ -58,7 +73,7 @@ function tijiaopost() {
                     return tmpd;
                 }
             },
-            success: function(data, textStatus) {
+            success: function(data, textStatus, xhr) {
                 if (data.status == "OK") {
                     alert("发送成功");
                     var text = [{
@@ -98,6 +113,7 @@ function htmlinit() {
         return "http://7xljsf.com1.z0.glb.clouddn.com/" + $(this).attr("hash");
     });
     $("[hash]").removeAttr("hash");
+    $('.img').unbind("click"); //移除事件重新创建
     $(".img").click(function() {
         if ($(this).css("width") <= "100px") {
             $(this).css("width", "100%");
@@ -111,28 +127,10 @@ function json_comment(id) {
     if (id == 1) {
         $('#commit').empty()
     } else {}
+    console.log();
     $('#commit').html(Loading_xml(window.commentjson.responseJSON));
     //$('#commit').html(json_commentxml(commentjson.responseJSON,id));
     window.id = id;
-}
-function footer(argument) {
-    $(document).ready(function() {
-        $(window).scroll(function() {
-            //$(document).scrollTop() 获取垂直滚动的距离
-            //$(document).scrollLeft() 这是获取水平滚动条的距离
-            if ($(document).scrollTop() + 100 >= $(document).height() - $(window).height()) {
-                if (Loading_xml(window.commentjson.responseJSON) == "<wbi></wbi>") {
-                    $("loading").remove();
-                    $('wbi').html("<span class=\"glyphicon glyphicon-exclamation-sign\" style=\"color: rgb(255, 140, 60);\">加载完毕</span>");
-                } else {
-                    CommentNum(++window.id);
-                    $('#commit').append(Loading_xml(window.commentjson.responseJSON) + "<loading>Loading....</loading>");
-                    $("loading").remove();
-                    htmlinit();
-                }
-            }
-        });
-    });
 }
 
 function Loading_xml(argument) { //json生成评论返回dom
@@ -220,11 +218,4 @@ $("#jiao").click(function() {
     $(this).css("background-color", "#00a3cf");
     $(this).text("发送");
     $(this).attr("disabled", false);
-});
-$(".img").click(function() {
-        if ($(this).css("width") <= "100px") {
-            $(this).css("width", "100%");
-        } else {
-            $(this).css("width", "100px");
-        }
 });
