@@ -108,6 +108,7 @@ function tijiaopost() {
 
 function htmlinit() {
     $(".comm").fadeIn(1500);
+    $("audio").attr("preload","meta");
     $("[hash]").attr("src", function() {
         $("img[hash]").addClass("img");
         return "http://7xljsf.com1.z0.glb.clouddn.com/" + $(this).attr("hash");
