@@ -108,11 +108,16 @@ function tijiaopost() {
 
 function htmlinit() {
     $(".comm").fadeIn(1500);
-    $("audio").attr("preload","meta");
+    $("audio").attr("preload", "meta");
     $("[hash]").attr("src", function() {
         $("img[hash]").addClass("img");
+        //return "http://hiqfs.file.alimmdn.com" + $(this).attr("hash");
         return "http://7xljsf.com1.z0.glb.clouddn.com/" + $(this).attr("hash");
     });
+    /*
+    $(".img[hash]").attr("src", function() {//分流备用
+        return "http://hiqfs.image.alimmdn.com" + $(this).attr("hash");
+    });*/
     $("[hash]").removeAttr("hash");
     $('.img').unbind("click"); //移除事件重新创建
     $(".img").click(function() {
