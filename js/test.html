@@ -1,20 +1,53 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <meta charset="utf-8">
     <title>Test</title>
-      <script src="http://apps.bdimg.com/libs/jquery/2.1.1/jquery.js"></script>
+    <link href="http://cdn.bootcss.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="http://blueimp.github.io/jQuery-File-Upload/css/jquery.fileupload.css" rel="stylesheet">
     <!--link href='http://fonts.useso.com/css?family=Clicker+Script|Open+Sans:400,300' rel='stylesheet'-->
-    <script src="./ws.js"></script>
-    <script src="http://apps.bdimg.com/libs/jquery/2.1.1/jquery.js"></script>
+    <script src="http://cdn.staticfile.org/jquery/3.0.0-alpha1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/blueimp-file-upload/9.5.7/jquery.fileupload.js"></script>
+    <script src="./us.js"></script>
+    <script src="http://cdn.staticfile.org/tether/1.1.1/js/tether.js"></script>
+    <link href="http://cdn.staticfile.org/tether/1.1.1/css/tether.css" rel="stylesheet">
+    <script src="http://cdn.bootcss.com/bootstrap/4.0.0-alpha.2/js/bootstrap.min.js"></script>
     <link rel="stylesheet" type="text/css" href="/css/master.css">
-    <script src="./init.js"></script>
-  </head>
-  <body>
-    Hello world<br>
-    <!-- 请求资源哈希 -->
-    <im id="image" hash="FoB_nH00_REdKMa4Vp6-BEmyeZjm"></im>
-    <im id="image" hash="FmHZGZNtjHJzc9_L05-wL2_kri-7"></im>
-    <p>翻翻覆覆翻翻覆覆峰</p>
-    </body>
+</head>
+
+<body>
+    <span class="btn btn-success fileinput-button">
+            <input id="fileupload" type="file" name="file" data-url="http://upload.qiniu.com/" multiple>
+    </span>
+    <script>
+    $(function() {
+        $('#fileupload').fileupload({
+            dataType: 'json',
+            formData: {
+                token: $.ajax({
+                    type: "GET",
+                    url: "http://server-php.coding.io/token.php",
+                    async: false
+                }).responseText
+            },
+            done: function(e, data) {
+                $.each(data.result.files, function(index, file) {
+                    $('<p/>').text(file.name).appendTo(document.body);
+                });
+            },
+            error: function(jqXHR, textStatus, errorThrown) {
+                console.log(jqXHR);
+                console.log(textStatus);
+                console.log(errorThrown);
+            }
+        });
+    });
+    </script>
+    <div id="progress">
+        <div class="bar" style="width: 0%;"></div>
+    </div>
+</body>
+
 </html>
