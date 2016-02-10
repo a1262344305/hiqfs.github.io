@@ -32,7 +32,8 @@ function hius() {
     setTimeout(function() {
         var hjs = document.createElement('script');
         hjs.setAttribute('id', 'us');
-        hjs.setAttribute('async', 'async');
+        //同步bug
+        //hjs.setAttribute('async', 'async');
         hjs.setAttribute('src', 'http://api.hitokoto.us/rand?encode=jsc');
         document.body.appendChild(hjs);
     }, 100);
@@ -64,7 +65,7 @@ baidufen();
 function bar(argument) {
     switch (argument) {
         case '1':
-            $('xmd').load('lyb.html', function(response, status,xhr) {
+            $('xmd').load('lyb.html', function(response, status, xhr) {
                 if (status == "success") {
                     hius();
                     $("#b1").addClass(function() {
@@ -73,8 +74,8 @@ function bar(argument) {
                     });
                     $("title").html("喵窝留言板⊙ω⊙");
                     delete_us();
-                }else{
-                    alert("加载失败  _(:qゝ∠)_  \n错误代码:"+xhr.status);
+                } else {
+                    alert("加载失败  _(:qゝ∠)_  \n错误代码:" + xhr.status);
                     console.log(xhr);
                 }
             });
