@@ -1,11 +1,4 @@
 @charset "UTF-8";
-@font-face {
-    font-family: 'wfont';
-    font-style: normal;
-    font-weight: 600;
-    src: local('Open Sans'), local('OpenSans'), url(http://7xljsf.com1.z0.glb.clouddn.com/Fp7IFiSrTK5GLVQL8nANhegwgXuZ) format('truetype');
-}
-
 /*import url(http://apps.bdimg.com/libs/fontawesome/4.4.0/css/font-awesome.min.css);*/
 
 #root {
