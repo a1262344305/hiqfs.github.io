@@ -1,4 +1,10 @@
 @charset "UTF-8";
+@font-face {
+    font-family: 'wfont';
+    font-style: normal;
+    font-weight: 600;
+    src: local('Open Sans'), local('OpenSans'), url(http://7xljsf.com1.z0.glb.clouddn.com/Fp7IFiSrTK5GLVQL8nANhegwgXuZ) format('truetype');
+}
 
 /*import url(http://apps.bdimg.com/libs/fontawesome/4.4.0/css/font-awesome.min.css);*/
 
@@ -13,6 +19,7 @@
     bottom: 0;
     /*background-image: url(http://qqfs.qiniudn.com/background.png);*/
     background-size: 100% auto;
+    font-family: 'wfont';
 }
 
 #hcond {
@@ -26,7 +33,9 @@
 #root a:hover {
     text-decoration: none;
 }
-
+#b3{
+  float: right;
+}
 .footer p {
     color: darkslategray;
     font-family: clicker script, segoe script, Comic Sans MS;
@@ -84,11 +93,6 @@
 
 p a {
     text-decoration: none;
-}
-
-//xmd{
-text-align: center;
-
 }
 time {
     font-size: 50%;

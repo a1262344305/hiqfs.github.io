@@ -24,12 +24,18 @@ $(document).ready(function() {
                 $("loading").remove();
                 $('wbi').html("<span class=\"glyphicon glyphicon-exclamation-sign\" style=\"color: rgb(255, 140, 60);\">加载完毕</span>");
             } else {
+                $("#b3").fadeIn(500);
                 CommentNum(++window.id);
                 $('#commit').append(Loading_xml(window.commentjson.responseJSON) + "<loading>Loading....</loading>");
                 $("loading").remove();
                 htmlinit();
             }
         }
+       if($(document).scrollTop() > $(window).height()){
+           $('#b3').show("100");
+       }else{
+           $('#b3').hide("100");
+       }
     });
     init(); //脚本初始化
     htmlinit();
@@ -224,6 +230,10 @@ $("#jiao").click(function() {
     $(this).css("background-color", "#00a3cf");
     $(this).text("发送");
     $(this).attr("disabled", false);
+});
+$("#b3").click(function(){
+  var sc=$(window).scrollTop();
+  $('body,html').animate({scrollTop:0},500);
 });
     $(function() {
         $('#fileupload').fileupload({

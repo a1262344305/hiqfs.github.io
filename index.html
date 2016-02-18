@@ -27,11 +27,12 @@
     <script src="http://cdn.staticfile.org/tether/1.1.1/js/tether.js"></script>
     <script src="http://cdn.bootcss.com/bootstrap/4.0.0-alpha/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="http://7u2f38.com1.z0.glb.clouddn.com/ajax/libs/socket.io/1.4.4/socket.io.min.js"></script>
+    <script type="text/javascript" src="dhttp://api.youziku.com/webfont/FastJS/yzk_4CB10B26CE202586"></script>
     <!--script type="text/javascript" src="/js/update.js"></script-->
+    <script src="/js/init.js" charset="utf-8"></script>
 </head>
-
 <body id="root">
-    <nav class="navbar navbar-fixed-top navbar-dark bg-inverse" role="navigation">
+    <nav class="navbar navbar-fixed-top navbar-dark bg-inverse" style="font-family: 'wfont'" role="navigation">
         <a class="navbar-brand" href="/">喵窝</a>
         <div>
             <ul class="nav navbar-nav">
@@ -39,6 +40,7 @@
                 <li class="nav-item"><a id='b2' class="nav-link" href="javascript:bar('2');">关于我</a></li>
             </ul>
         </div>
+        <a id='b3' class="navbar-brand" style="display: none;" href="javascript:void(0)">回顶部</a>
     </nav>
     <xmd>
         <div id="hcond">
@@ -55,7 +57,6 @@
     <div class="footer">
         <p>life,love,linux</p>
     </div>
-    <script src="/js/init.js" charset="utf-8"></script>
 </body>
 
 </html>
