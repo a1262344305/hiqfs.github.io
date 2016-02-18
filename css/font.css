@@ -195,7 +195,7 @@
 }
 @font-face {
     font-family: 'wfont';
-    font-style: normal;
-    font-weight: 400;
-    src: local('Open Sans'), local('OpenSans'), url(http://7xljsf.com1.z0.glb.clouddn.com/Fp7IFiSrTK5GLVQL8nANhegwgXuZ) format('truetype');
+    src:
+    url(http://7xljsf.com1.z0.glb.clouddn.com/Fns9LWtcso2EylDd7908kcAiv6e_) format('WOFF2'),
+    url(http://7xljsf.com1.z0.glb.clouddn.com/Fp7IFiSrTK5GLVQL8nANhegwgXuZ) format('truetype');
 }
