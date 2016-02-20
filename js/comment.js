@@ -31,11 +31,11 @@ $(document).ready(function() {
                 htmlinit();
             }
         }
-       if($(document).scrollTop() > $(window).height()){
-           $('#b3').show("100");
-       }else{
-           $('#b3').hide("100");
-       }
+        if ($(document).scrollTop() > $(window).height()) {
+            $('#b3').show("100");
+        } else {
+            $('#b3').hide("100");
+        }
     });
     init(); //脚本初始化
     htmlinit();
@@ -231,7 +231,6 @@ $("#jiao").click(function() {
     $(this).text("发送");
     $(this).attr("disabled", false);
 });
-<<<<<<< HEAD
 $("status").click(function() {
     if (window.status) { //服务器自动状态提醒
         $('status').text('已连接');
@@ -239,6 +238,10 @@ $("status").click(function() {
     } else {
         websocketio();
     }
+});
+$("#b3").click(function() {
+    var sc = $(window).scrollTop();
+    $('body,html').animate({ scrollTop: 0 }, 500);
 });
 $(function() {
     $('#fileupload').fileupload({
@@ -262,31 +265,3 @@ $(function() {
         }
     });
 });
-=======
-$("#b3").click(function(){
-  var sc=$(window).scrollTop();
-  $('body,html').animate({scrollTop:0},500);
-});
-    $(function() {
-        $('#fileupload').fileupload({
-            dataType: 'json',
-            formData: {
-                token: $.ajax({
-                    type: "GET",
-                    url: "http://server-php.coding.io/token.php",
-                    async: false
-                }).responseText
-            },
-            done: function(e, data) {
-                $.each(data.result.files, function(index, file) {
-                    $('<p/>').text(file.name).appendTo(document.body);
-                });
-            },
-            error: function(jqXHR, textStatus, errorThrown) {
-                console.log(jqXHR);
-                console.log(textStatus);
-                console.log(errorThrown);
-            }
-        });
-    });
->>>>>>> 6edb0efc033d4fd0503666e34366766dc92f61c5
