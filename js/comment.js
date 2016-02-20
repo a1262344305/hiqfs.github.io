@@ -225,25 +225,33 @@ $("#jiao").click(function() {
     $(this).text("发送");
     $(this).attr("disabled", false);
 });
-    $(function() {
-        $('#fileupload').fileupload({
-            dataType: 'json',
-            formData: {
-                token: $.ajax({
-                    type: "GET",
-                    url: "http://server-php.coding.io/token.php",
-                    async: false
-                }).responseText
-            },
-            done: function(e, data) {
-                $.each(data.result.files, function(index, file) {
-                    $('<p/>').text(file.name).appendTo(document.body);
-                });
-            },
-            error: function(jqXHR, textStatus, errorThrown) {
-                console.log(jqXHR);
-                console.log(textStatus);
-                console.log(errorThrown);
-            }
-        });
+$("status").click(function() {
+    if (window.status) { //服务器自动状态提醒
+        $('status').text('已连接');
+        $('status').css("background-color", "#0275d8");
+    } else {
+        websocketio();
+    }
+});
+$(function() {
+    $('#fileupload').fileupload({
+        dataType: 'json',
+        formData: {
+            token: $.ajax({
+                type: "GET",
+                url: "http://server-php.coding.io/token.php",
+                async: false
+            }).responseText
+        },
+        done: function(e, data) {
+            $.each(data.result.files, function(index, file) {
+                $('<p/>').text(file.name).appendTo(document.body);
+            });
+        },
+        error: function(jqXHR, textStatus, errorThrown) {
+            console.log(jqXHR);
+            console.log(textStatus);
+            console.log(errorThrown);
+        }
     });
+});
