@@ -18,7 +18,7 @@ function hitokoto(hi) {
     if (hi.source) {
         text = "<p>" + hi.hitokoto + "<br>来自：" + hi.source + "</p>";
     } else {
-        text = hi.hitokoto;
+        text = "<p>" + hi.hitokoto + "</p>";
     }
     $('#hitokoto').html(text);
 }
@@ -64,17 +64,22 @@ function baidufen(argument) { //百度分享
 baidufen();
 
 function bar(argument) {
+  $("#hcond").show();
+  $('#b3').hide("100");
+  $("ping").hide();
     switch (argument) {
         case '1':
-            $('xmd').load('lyb.html', function(response, status, xhr) {
+        $("about").hide();
+          $("#hcond").animate({marginTop:'100px'});
+            $('#ping').load('lyb.html', function(response, status, xhr) {
                 if (status == "success") {
-                    hius();
                     $("#b1").addClass(function() {
                         $("li a").removeClass("active");
                         return "active";
                     });
                     $("title").html("喵窝留言板⊙ω⊙");
-                    delete_us();
+                    $("#title").html("喵窝留言板⊙ω⊙");
+                    $("#ping").show();
                 } else {
                     alert("加载失败  _(:qゝ∠)_  \n错误代码:" + xhr.status);
                     console.log(xhr);
@@ -82,18 +87,34 @@ function bar(argument) {
             });
             break;
         case '2':
-            $('xmd').load('About.htm');
-            hius();
+            $('about').load('About.htm');
+            $(window).unbind();
+            $("#hcond").hide();
             $("#b2").addClass(function() {
                 $("li a").removeClass("active");
                 return "active";
             });
             $("title").html("关于喵窝");
-            delete_us();
+            $("#ping").hide();
+            $("about").show();
+            break;
+        case 'home':
+            $("about").hide();
+            $(window).unbind();
+            $("#hcond").animate({marginTop:'200px'});
+            $("#ping").hide();
+            $("#home").addClass(function() {
+                $("li a").removeClass("active");
+                return "active";
+            });
+            $("title").html("喵窝");
+            $("#title").html("欢迎来到喵窝∩ω∩");
             break;
         default:
             window.location.href = "/";
     }
+    hius();
+    delete_us();
 }
 function youziku() {
   //$youziku.load("#hcond h1", "6a165ede1020463ba4351d8e1771839f", "DroidSans");

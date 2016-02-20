@@ -103,7 +103,7 @@ function tijiaopost() {
                 console.log(errorThrown);
                 alert("error");
             },
-            async: "true",
+
             cache: "false"
         });
         return tijiaopostand;
@@ -231,10 +231,11 @@ $("#jiao").click(function() {
     $(this).text("发送");
     $(this).attr("disabled", false);
 });
-$("#b3").click(function(){
-  var sc=$(window).scrollTop();
-  $('body,html').animate({scrollTop:0},500);
-});
+$("#b3").click(function () {
+        var speed=200;//滑动的速度
+        $('body,html').animate({ scrollTop: 0 }, speed);
+        return false;
+ });
     $(function() {
         $('#fileupload').fileupload({
             dataType: 'json',
