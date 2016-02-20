@@ -2,6 +2,7 @@ $("document").ready(function() {
     //$('#bar').load("/bar.html");
     hius();
 });
+youziku();
 
 function mobile() {
     if ((navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i))) {
@@ -93,4 +94,8 @@ function bar(argument) {
         default:
             window.location.href = "/";
     }
+}
+function youziku() {
+  //$youziku.load("#hcond h1", "6a165ede1020463ba4351d8e1771839f", "DroidSans");
+  //$youziku.draw();
 }
