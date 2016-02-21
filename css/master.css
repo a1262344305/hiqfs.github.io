@@ -7,12 +7,11 @@
   background-image: url(http://johnzhang.cn/bing.php);*/
     background: fixed center top;
     /*background-color: rgba(249, 249, 249, 1);*/
-    font-family: Source Han Sans CN, 微软雅黑, Helvetica, STHeiti, Droid Sans Fallback;
+    font-family:华康娃娃体W5, Source Han Sans CN, 微软雅黑, Helvetica, STHeiti, Droid Sans Fallback;
     right: 0;
     bottom: 0;
     /*background-image: url(http://qqfs.qiniudn.com/background.png);*/
     background-size: 100% auto;
-    font-family: 'wfont';
 }
 
 #hcond {
