@@ -66,10 +66,13 @@ baidufen();
 function bar(argument) {
   $("#hcond").show();
   $('#b3').hide("100");
-  $("ping").hide();
+  $("#ping").empty();
+  $(window).unbind();
+  $("body,html").unbind();
+  $("#b3").unbind();
+  $("about").empty();
     switch (argument) {
         case '1':
-        $("about").hide();
           $("#hcond").animate({marginTop:'100px'});
             $('#ping').load('lyb.html', function(response, status, xhr) {
                 if (status == "success") {
@@ -88,21 +91,16 @@ function bar(argument) {
             break;
         case '2':
             $('about').load('About.htm');
-            $(window).unbind();
             $("#hcond").hide();
             $("#b2").addClass(function() {
                 $("li a").removeClass("active");
                 return "active";
             });
             $("title").html("关于喵窝");
-            $("#ping").hide();
             $("about").show();
             break;
         case 'home':
-            $("about").hide();
-            $(window).unbind();
             $("#hcond").animate({marginTop:'200px'});
-            $("#ping").hide();
             $("#home").addClass(function() {
                 $("li a").removeClass("active");
                 return "active";
