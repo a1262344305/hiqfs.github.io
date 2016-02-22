@@ -31,11 +31,11 @@ $(document).ready(function() {
                 htmlinit();
             }
         }
-       if($(document).scrollTop() > $(window).height()){
-           $('#b3').show("100");
-       }else{
-           $('#b3').hide("100");
-       }
+        if ($(document).scrollTop() > $(window).height()) {
+            $('#b3').show("100");
+        } else {
+            $('#b3').hide("100");
+        }
     });
     init(); //脚本初始化
     htmlinit();
@@ -231,30 +231,38 @@ $("#jiao").click(function() {
     $(this).text("发送");
     $(this).attr("disabled", false);
 });
+$("status").click(function() {
+    if (window.status) { //服务器自动状态提醒
+        $('status').text('已连接');
+        $('status').css("background-color", "#0275d8");
+    } else {
+        websocketio();
+    }
+});
 $("#b3").click(function () {
         var speed=200;//滑动的速度
         $('body,html').animate({ scrollTop: 0 }, speed);
         return false;
  });
-    $(function() {
-        $('#fileupload').fileupload({
-            dataType: 'json',
-            formData: {
-                token: $.ajax({
-                    type: "GET",
-                    url: "http://server-php.coding.io/token.php",
-                    async: false
-                }).responseText
-            },
-            done: function(e, data) {
-                $.each(data.result.files, function(index, file) {
-                    $('<p/>').text(file.name).appendTo(document.body);
-                });
-            },
-            error: function(jqXHR, textStatus, errorThrown) {
-                console.log(jqXHR);
-                console.log(textStatus);
-                console.log(errorThrown);
-            }
-        });
+$(function() {
+    $('#fileupload').fileupload({
+        dataType: 'json',
+        formData: {
+            token: $.ajax({
+                type: "GET",
+                url: "http://server-php.coding.io/token.php",
+                async: false
+            }).responseText
+        },
+        done: function(e, data) {
+            $.each(data.result.files, function(index, file) {
+                $('<p/>').text(file.name).appendTo(document.body);
+            });
+        },
+        error: function(jqXHR, textStatus, errorThrown) {
+            console.log(jqXHR);
+            console.log(textStatus);
+            console.log(errorThrown);
+        }
     });
+});
