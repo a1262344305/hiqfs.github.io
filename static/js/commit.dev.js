@@ -93,7 +93,7 @@ function tijiaopost() {
                         "time": data.time
                     }, "duang"];
                     $('#commit').prepend(Loading_xml(text));
-                    iosocket.send(JSON.stringify(text));
+                    //iosocket.send(JSON.stringify(text));
                     $("#ti").empty();
                     ++commitNum;
                     htmlinit();
@@ -176,13 +176,12 @@ function json_comment(id) {
 }
 
 function Loading_xml(argument) { //json生成评论返回dom
-    if (argument.length - 1 > 0) {
+    if (argument.length - 1 != 0) {
         commithaed = "<div class='comm' style=\"display:none;\"><div>";
         commitzhon = "</div><time>";
         commitfooter = "</time><br></div>";
         var commenttmp = "";
-        tiao = 0;
-        for (i = tiao; i < tiao + argument.length - 1; i++) {
+        for (i = 0; i < argument.length - 1; i++) {
             commenttmp += commithaed + argument[i].comment;
             commenttmp += commitzhon
             commenttmp += argument[i].time + commitfooter;
@@ -202,7 +201,7 @@ function Loading_xml(argument) { //json生成评论返回dom
 }
 
 function emoji(argument) { //处理emoji表情
-    text = argument.replace(/\&#[1-9]*;/g, function(emojicode) {
+    var text = argument.replace(/\&#[1-9]*;/g, function(emojicode) {
         var num = parseInt(emojicode.substring(2, emojicode.length - 1)).toString(16);
         if (num > "20e3" && num < "1f6c5") {
             return argument;
@@ -224,6 +223,7 @@ function websocketio() {
         var text = JSON.parse(message);
         $('#commit').prepend(Loading_xml(text));
         window.msnum = window.msnum + 1;
+        console.log("收到消息");
         $("num").text(msnum);
         if ($(document).scrollTop() > $(window).height()) {
             $('num').show();
@@ -257,18 +257,13 @@ function CommentNum(id) {
     });
 }
 timetmp = (new Date).getTime() + 3000;
-
+websocketio();
 function sjmo() {
     //蛋疼的封装了一堆函数
     // Jquery Code
     //开始处理点击事件
     $("status").click(function() {
-        if (window.status) { //服务器自动状态提醒
-            $('status').text('已连接');
-            $('status').css("background-color", "#0275d8");
-        } else {
-            websocketio();
-        }
+      iosocket.connect();
     });
     $("#b3").click(function() {
         var speed = 200; //滑动的速度
