@@ -1,4 +1,5 @@
 //代码重构
+serverjs= "https://jaber-nodejs.daoapp.io/";
 serverphp = "https://jaber.daoapp.io";
 //serverphp = "http://server-php.coding.io";
 //serverphp = "https://php-qqfs.rhcloud.com/";
@@ -213,7 +214,7 @@ function emoji(argument) { //处理emoji表情
 }
 
 function websocketio() {
-    iosocket = io.connect("http://jaber-nodejs.daoapp.io/");
+    iosocket = io.connect(serverjs);
     iosocket.on('connect', function() {
         $('status').text('已连接');
         window.status = 1;
