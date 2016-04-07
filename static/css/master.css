@@ -28,11 +28,7 @@
 #root a:hover {
     text-decoration: none;
 }
-
-#b3 {
-    float: right;
-}
-
+#b3 {float: right;}
 .footer p {
     color: darkslategray;
     font-family: clicker script, segoe script, Comic Sans MS;
@@ -43,18 +39,9 @@
     text-align: center;
     display: block;
 }
-
-.base {
-    max-width: 700px;
-}
-
 .center {
     text-align: center;
     margin: 0px auto;
-}
-
-.base {
-    width: 60%;
 }
 
 #hcon {
@@ -67,11 +54,6 @@
     bottom: 100px;
     right: 25px;
 }
-
-.mindex {
-    max-width: 400px;
-}
-
 .tianqi {
     width: 420px;
     height: 45px;
@@ -91,12 +73,10 @@
     margin-bottom: 0px;
 }
 
-p a {
-    text-decoration: none;
-}
+p a {text-decoration: none;}
 
 time {
-    font-size: 50%;
+    font-size: 70%;
     color: #A9A9A9;
     text-shadow: none;
 }
@@ -108,9 +88,7 @@ p {
 
 center p {}
 
-#commit {
-    clear: both;
-}
+#commit {clear: both;}
 
 .hitokoto a {
     text-decoration: none;
@@ -141,9 +119,7 @@ text {
     text-align: center;
 }
 
-a {
-    text-decoration: none;
-}
+a {text-decoration: none;}
 
 ys {
     text-shadow: 1px 1px 2px #000;
@@ -163,9 +139,7 @@ img{
   width: 200px;
 }
 .img,
-#ti img {
-    width: 200px;
-}
+#ti img {width: 200px;}
 
 .emojisize {
     width: 20px;
@@ -204,16 +178,11 @@ comment code {
     display: inline-block;
 }
 
-span a {
-    color: #FFF;
-}
-
+span a {color: #FFF;}
 .status {
     font-size: 50%;
     display: none;
 }
-
-.comm {}
 
 .comm code {
     display: inline-block;
@@ -288,7 +257,7 @@ num {
 }
 
 powered {
-    font-size: 50%;
+    font-size: 70%;
     color: #A9A9A9;
     text-align: center;
     display: block;
