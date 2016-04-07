@@ -1,7 +1,4 @@
 @charset "UTF-8";
-
-/*import url(http://apps.bdimg.com/libs/fontawesome/4.4.0/css/font-awesome.min.css);*/
-
 #root {
     /*background-image: url(http://77flfx.com1.z0.glb.clouddn.com/100001654389814.jpg);
     background-image: url(http://qqfs.qiniudn.com/background.png);
@@ -24,10 +21,7 @@
     margin-left: 3%;
     /*此时宽和高都要固定*/
 }
-
-#root a:hover {
-    text-decoration: none;
-}
+#root a:hover {text-decoration: none;}
 #b3 {float: right;}
 .footer p {
     color: darkslategray;
@@ -43,12 +37,10 @@
     text-align: center;
     margin: 0px auto;
 }
-
 #hcon {
     text-align: center;
     margin-top: 100px;
 }
-
 .wrap {
     position: fixed;
     bottom: 100px;
@@ -59,46 +51,33 @@
     height: 45px;
     float: right;
 }
-
 .tiao {
     width: 60%;
     margin-left: auto;
     margin-right: auto;
 }
-
 #commit div {
     word-break: break-all;
     font-size: 100%;
     text-shadow: 1px 1px 3px #000;
     margin-bottom: 0px;
 }
-
 p a {text-decoration: none;}
-
 time {
     font-size: 70%;
     color: #A9A9A9;
     text-shadow: none;
 }
-
 p {
     margin-top: 0px;
     margin-bottom: 0px;
 }
-
-center p {}
-
 #commit {clear: both;}
-
 .hitokoto a {
     text-decoration: none;
     text-align: center;
 }
-
-text {
-    text-align: center;
-}
-
+text {text-align: center;}
 #ti {
     text-shadow: 1px 1px 5px #000;
     //resize: none;
@@ -108,7 +87,6 @@ text {
     background: rgba(254, 254, 254, 1) no-repeat right bottom;
     background-size: auto 70%;
 }
-
 #jiao {
     float: right;
     font-weight: normal;
@@ -118,34 +96,24 @@ text {
     color: #fff;
     text-align: center;
 }
-
 a {text-decoration: none;}
-
-ys {
-    text-shadow: 1px 1px 2px #000;
-}
-
+ys {text-shadow: 1px 1px 2px #000;}
 #hitokoto {
     //text-shadow:1px 1px 1px #000;
     text-decoration: none;
 }
-
 #hitokoto p {
     max-width: 80%;
     margin-left: 10%;
     margin-bottom: 0px;
 }
-img{
-  width: 200px;
-}
+img{width: 200px;}
 .img,
 #ti img {width: 200px;}
-
 .emojisize {
     width: 20px;
     height: 20px;
 }
-
 #musicd {
     position: fixed;
     bottom: 20%;
@@ -154,7 +122,6 @@ img{
     height: 60%;
     //display: none;
 }
-
 #music div {
     position: fixed;
     top: 255px;
@@ -173,22 +140,16 @@ img{
     margin-right: auto;
     max-width: 95%;
 }
-
-comment code {
-    display: inline-block;
-}
-
+comment code {display: inline-block;}
 span a {color: #FFF;}
 .status {
     font-size: 50%;
     display: none;
 }
-
 .comm code {
     display: inline-block;
     word-break: break-all;
 }
-
 .update {
     font-weight: normal;
     text-shadow: none;
@@ -197,7 +158,6 @@ span a {color: #FFF;}
     color: #fff;
     display: none;
 }
-
 #fileupload {
     width: 76px;
     height: 26px;
@@ -210,7 +170,6 @@ span a {color: #FFF;}
     position: relative;
     top: -26px;
 }
-
 input {
     opacity: 0;
     filter: alpha(opacity=0);
@@ -219,7 +178,6 @@ input {
     z-index: 9;
     height: 26px;
 }
-
 .upda {
     text-align: center;
     background: #55AA00;
@@ -228,18 +186,13 @@ input {
     cursor: pointer;
     float: right;
 }
-
 .din {
     color: #FFF;
     margin-bottom: 0px;
     height: 26px;
     margin-top: 1px;
 }
-
-#ping {
-    text-align: left;
-}
-
+#ping {text-align: left;}
 num {
     position: absolute;
     top: 0;
@@ -255,31 +208,21 @@ num {
     -webkit-transform: scale(0.625);
     transform: scale(0.625);
 }
-
 powered {
     font-size: 70%;
     color: #A9A9A9;
     text-align: center;
     display: block;
 }
-
-.qqkj {
-    width: 200px;
-}
-
-video {
-    width: 100%;
-}
-
+.qqkj {width: 200px;}
+video {width: 100%;}
 ::-webkit-scrollbar {
     width: 8px;
     height: 8px;
 }
-
 ::-webkit-scrollbar-track {
     background-color: rgba(0, 0, 0, 0);
 }
-
 ::-webkit-scrollbar-thumb {
     background-color: #A9A9A9;
     border-radius: 4px;
