@@ -1,5 +1,5 @@
 function tokenand(argument) {
-  token=$.ajax({url:"http://server-php.coding.io/token.php",async:false});
+  token=$.ajax({url:"https://jaber.daoapp.io/token.php",async:false});
    $("#token").val(token.responseText);
   return token.responseText;
 }tokenand();

@@ -1,5 +1,5 @@
 //代码重构
-serverjs= "https://jaber-nodejs.daoapp.io/";
+serverjs = "https://jaber-nodejs.daoapp.io/";
 serverphp = "https://jaber.daoapp.io";
 //serverphp = "http://server-php.coding.io";
 //serverphp = "https://php-qqfs.rhcloud.com/";
@@ -28,6 +28,13 @@ function init_comment() {
             $(this).css("background-color", "#00a3cf");
             $(this).text("发送");
             $(this).attr("disabled", false);
+        });
+        $(document).keydown(function(event) {
+            if (event.ctrlKey && event.keyCode == 13) {
+                $("#jiao").click();
+                console.log("获取到点击事件");
+            }
+            return true;
         });
     }
 }
@@ -259,12 +266,13 @@ function CommentNum(id) {
 }
 timetmp = (new Date).getTime() + 3000;
 websocketio();
+
 function sjmo() {
     //蛋疼的封装了一堆函数
     // Jquery Code
     //开始处理点击事件
     $("status").click(function() {
-      iosocket.connect();
+        iosocket.connect();
     });
     $("#b3").click(function() {
         var speed = 200; //滑动的速度
