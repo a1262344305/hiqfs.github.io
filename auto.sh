@@ -1,7 +1,7 @@
 #!/bin/sh
 #!/bin/sh
 time=$(date)
-echo $time > ./text/version.txt
+echo $time > ./static/text/version.txt
 git add --all .
 git commit -m "$time $1"
 git push github master
