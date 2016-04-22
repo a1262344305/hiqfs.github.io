@@ -2,8 +2,8 @@ $("document").ready(function() {
     //$('#bar').load("/bar.html");
     hius();
     ash();
-    if(ashstatus){
-      heighttmp=0;
+    if (ashstatus) {
+        heighttmp = 0;
     }
     //mobile();
     $("#musica").click(function() {
@@ -153,17 +153,17 @@ function cping() {
     $("#commitload").hide();
     sjmo();
     $(document).ready(function() {
-      if(window.heighttmp){
-        if($(window).height() > window.heighttmp){
-          console.log(window.heighttmp);
-          console.log(heighttmp);
-          $('body,html').animate({ scrollTop: window.heighttmp }, 400);
+        if (window.heighttmp) {
+            if ($(window).height() > window.heighttmp) {
+                console.log(window.heighttmp);
+                console.log(heighttmp);
+                $('body,html').animate({ scrollTop: window.heighttmp }, 400);
+            }
+        } else {
+            window.heighttmp = 0;
+            console.log(heighttmp);
+            $('body,html').animate({ scrollTop: window.heighttmp }, 400);
         }
-      }else{
-        window.heighttmp=0;
-        console.log(heighttmp);
-        $('body,html').animate({ scrollTop: window.heighttmp }, 400);
-      }
     });
 }
 
@@ -222,7 +222,26 @@ function ash() {
     if (window.location.hash == "#cabout") {
         cabout();
     }
-    ashstatus=true;
+    ashstatus = true;
     //$youziku.load("#hcond h1", "6a165ede1020463ba4351d8e1771839f", "DroidSans");
     //$youziku.draw();
 }
+
+function show_date_time() {
+    window.setTimeout("show_date_time()", 1000);
+    BirthDay = new Date("6/15/2015 11:30:00"); //这个日期是可以修改的
+    today = new Date();
+    timeold = (today.getTime() - BirthDay.getTime());
+    sectimeold = timeold / 1000
+    secondsold = Math.floor(sectimeold);
+    msPerDay = 24 * 60 * 60 * 1000
+    e_daysold = timeold / msPerDay
+    daysold = Math.floor(e_daysold);
+    e_hrsold = (e_daysold - daysold) * 24;
+    hrsold = Math.floor(e_hrsold);
+    e_minsold = (e_hrsold - hrsold) * 60;
+    minsold = Math.floor((e_hrsold - hrsold) * 60);
+    seconds = Math.floor((e_minsold - minsold) * 60);
+    span_dt_dt.innerHTML = "瞄窝已经运行" + daysold + "天" + hrsold + "小时" + minsold + "分" + seconds + "秒";
+}
+show_date_time();
