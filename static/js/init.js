@@ -2,6 +2,9 @@ $("document").ready(function() {
     //$('#bar').load("/bar.html");
     hius();
     ash();
+    if(ashstatus){
+      heighttmp=0;
+    }
     //mobile();
     $("#musica").click(function() {
         if ($(this).css("left") == "0px") {
@@ -149,7 +152,19 @@ function cping() {
     init();
     $("#commitload").hide();
     sjmo();
-    $('body,html').animate({ scrollTop: window.heighttmp }, 400);
+    $(document).ready(function() {
+      if(window.heighttmp){
+        if($(window).height() > window.heighttmp){
+          console.log(window.heighttmp);
+          console.log(heighttmp);
+          $('body,html').animate({ scrollTop: window.heighttmp }, 400);
+        }
+      }else{
+        window.heighttmp=0;
+        console.log(heighttmp);
+        $('body,html').animate({ scrollTop: window.heighttmp }, 400);
+      }
+    });
 }
 
 function cabout() {
@@ -207,6 +222,7 @@ function ash() {
     if (window.location.hash == "#cabout") {
         cabout();
     }
+    ashstatus=true;
     //$youziku.load("#hcond h1", "6a165ede1020463ba4351d8e1771839f", "DroidSans");
     //$youziku.draw();
 }

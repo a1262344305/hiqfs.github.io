@@ -283,7 +283,7 @@ function sjmo() {
         //$(document).scrollTop() 获取垂直滚动的距离
         //$(document).scrollLeft() 这是获取水平滚动条的距离
         window.heighttmp = $(document).scrollTop();
-        if ($(document).scrollTop() + 100 >= $(document).height() - $(window).height()) {
+        if ($(document).scrollTop() >= $(document).height() - $(window).height()) {
             if (Loading_xml(window.commentjson.responseJSON) == "<wbi></wbi>") {
                 $("loading").remove();
                 $('wbi').html("<span class=\"glyphicon glyphicon-exclamation-sign\" style=\"color: rgb(255, 140, 60);\">加载完毕</span>");
