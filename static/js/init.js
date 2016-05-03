@@ -126,7 +126,7 @@ function bar(argument) {
                 $("li a").removeClass("active");
                 return "active";
             });
-            $("title").html("喵窝");
+            $("title").html("喵窝首页∩ω∩");
             $("#title").html("欢迎来到喵窝∩ω∩");
             window.location.hash = "";
             break;
@@ -190,7 +190,7 @@ function chome() {
         $("li a").removeClass("active");
         return "active";
     });
-    $("title").html("喵窝");
+    $("title").html("喵窝首页∩ω∩");
     $("#title").html("欢迎来到喵窝∩ω∩");
     window.location.hash = "";
 }
@@ -242,6 +242,6 @@ function show_date_time() {
     e_minsold = (e_hrsold - hrsold) * 60;
     minsold = Math.floor((e_hrsold - hrsold) * 60);
     seconds = Math.floor((e_minsold - minsold) * 60);
-    span_dt_dt.innerHTML = "瞄窝已经运行" + daysold + "天" + hrsold + "小时" + minsold + "分" + seconds + "秒";
+    $("#span_dt_dt").text("瞄窝已经运行" + daysold + "天" + hrsold + "小时" + minsold + "分" + seconds + "秒");
 }
 show_date_time();
