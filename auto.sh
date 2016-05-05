@@ -1,7 +1,7 @@
 #!/bin/sh
 #!/bin/sh
 time=$(date)
-echo $time > ./static/text/version.txt
+echo "$time $1" > ./static/text/version.txt
 git add --all .
 git commit -m "$time $1"
 git pull
