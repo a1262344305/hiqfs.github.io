@@ -184,7 +184,7 @@ function json_comment(id) {
 }
 
 function Loading_xml(argument) { //json生成评论返回dom
-    if (argument.length - 1 != 0) {
+    if (argument) {
         commithaed = "<div class='comm' style=\"display:none;\"><div>";
         commitzhon = "</div><time>";
         commitfooter = "</time><br></div>";
@@ -261,7 +261,9 @@ function CommentNum(id) {
         error: function(XMLHttpRequest, textStatus, errorThrown) {
             alert("加载失败.");
             window.error = 1;
-        },
+            comment.error(); //迷之代码;
+            //return false;
+        }
     });
 }
 timetmp = (new Date).getTime() + 3000;
@@ -288,14 +290,16 @@ function sjmo() {
                 $("loading").remove();
                 $('wbi').html("<span class=\"glyphicon glyphicon-exclamation-sign\" style=\"color: rgb(255, 140, 60);\">加载完毕</span>");
             } else {
-                console.time("执行时间");
                 //$("#b3").fadeIn(500);
                 if (!window.error) {
+                    console.time("执行时间");
                     $('#commit').append(Loading_xml(window.commentjson.responseJSON));
                     htmlinit();
+                    console.timeEnd("执行时间");
+                    CommentNum(window.id);
+                } else {
+                    CommentNum(window.id);
                 }
-                console.timeEnd("执行时间");
-                CommentNum(window.id);
             }
         }
         if ($(document).scrollTop() > $(window).height()) {
