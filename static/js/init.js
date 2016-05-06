@@ -121,7 +121,7 @@ function bar(argument) {
             window.location.hash = "cabout";
             break;
         case 'home':
-            $("#hcond").animate({ marginTop: '200px' });
+            $("#hcond").animate({ marginTop: '150px' });
             $("#home").addClass(function() {
                 $("li a").removeClass("active");
                 return "active";
@@ -185,7 +185,7 @@ function cabout() {
 }
 
 function chome() {
-    $("#hcond").animate({ marginTop: '200px' });
+    $("#hcond").animate({ marginTop: '150px' });
     $("#home").addClass(function() {
         $("li a").removeClass("active");
         return "active";
