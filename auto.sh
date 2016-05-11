@@ -7,4 +7,5 @@ git commit -m "$time $1"
 git pull
 git push github master
 git push origin master
+git push gitlab master 
 #自动部署代码
