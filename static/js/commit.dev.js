@@ -46,12 +46,14 @@ function init(argument) { //脚本初始化函数
     var index = Math.floor(Math.random() * (11 - 1 + 1) + 1); //评论框随机背景
     $("#ti").css("background-image", "url(http://hiqfs.image.alimmdn.com/bk" + index + ".jpg)");
     //footer(); //底部加载脚本初始化
+    /*
     if (window.status) { //服务器自动状态提醒
         $('status').text('已连接');
         $('status').css("background-color", "#0275d8");
     } else {
         websocketio();
     }
+    */
 }
 //init(); //脚本初始化
 
