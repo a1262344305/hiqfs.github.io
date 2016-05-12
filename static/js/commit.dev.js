@@ -103,7 +103,7 @@ function tijiaopost() {
                         "time": data.time
                     }, "duang"];
                     $('#commit').prepend(Loading_xml(text));
-                    //iosocket.send(JSON.stringify(text));
+                    iosocket.send(JSON.stringify(text));
                     $("#ti").empty();
                     ++commitNum;
                     htmlinit();
