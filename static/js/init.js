@@ -154,13 +154,10 @@ function cping() {
     $(document).ready(function() {
         if (window.heighttmp) {
             if ($(window).height() > window.heighttmp) {
-                console.log(window.heighttmp);
-                console.log(heighttmp);
                 $('body,html').animate({ scrollTop: window.heighttmp }, 400);
             }
         } else {
             window.heighttmp = 0;
-            console.log(heighttmp);
             $('body,html').animate({ scrollTop: window.heighttmp }, 400);
         }
     });
