@@ -1,11 +1,11 @@
 $("document").ready(function() {
     //$('#bar').load("/bar.html");
     hius();
+    //mobile();
     ash();
     if (ashstatus) {
         heighttmp = 0;
     }
-    //mobile();
     $("#musica").click(function() {
         if ($(this).css("left") == "0px") {
             $(this).animate({ left: '280px' });
@@ -16,7 +16,6 @@ $("document").ready(function() {
         }
     });
 });
-
 function mobile() {
     if ((navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i))) {
         $("#musica").css("display", "none");
@@ -245,3 +244,6 @@ function show_date_time() {
     $("#span_dt_dt").text("瞄窝已经运行" + daysold + "天" + hrsold + "小时" + minsold + "分" + seconds + "秒");
 }
 show_date_time();
+window.onload=function(){
+    console.log("刷新事件");
+}
