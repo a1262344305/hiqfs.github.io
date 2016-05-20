@@ -107,7 +107,8 @@ function bar(argument) {
             init();
             sjmo();
             $("#commitload").hide();
-            $('body,html').animate({ scrollTop: window.heighttmp }, 400);
+            console.log("dd");
+            $('html').animate({ scrollTop: window.heighttmp }, 400);
             break;
         case '2':
             $("#hcond").hide();
@@ -158,7 +159,7 @@ function cping() {
             }
         } else {
             window.heighttmp = 0;
-            $('body,html').animate({ scrollTop: window.heighttmp }, 400);
+            //$('body,html').animate({ scrollTop: window.heighttmp }, 400);
         }
     });
 }
@@ -194,6 +195,7 @@ function chome() {
 function urlchenge() {
     $("#hcond").show();
     if (window.location.hash == "#cping") {
+      $('body,html').animate({ scrollTop: window.heighttmp }, 400);
         if ($(document).scrollTop() > $(window).height()) {
             $('#b3').show("100");
         }
@@ -241,6 +243,3 @@ function show_date_time() {
     $("#span_dt_dt").text("瞄窝已经运行" + daysold + "天" + hrsold + "小时" + minsold + "分" + seconds + "秒");
 }
 show_date_time();
-window.onload=function(){
-    console.log("刷新事件");
-}

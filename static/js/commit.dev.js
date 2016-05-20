@@ -91,6 +91,9 @@ function tijiaopost() {
                             tmpd += String.fromCharCode($("#ti").html().codePointAt(i));
                         }
                     } //哈哈，可以支持emoji了😆
+                    if((tmpd.substring(tmpd.length-15,tmpd.length)=="<div><br></div>")==true){
+                      tmpd=tmpd.substring(0,tmpd.length-15);
+                    }
                     window.tmop = tmpd;
                     return tmpd;
                 }
